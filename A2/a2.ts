@@ -258,7 +258,7 @@ namespace A2 {
                 s.backgroundColor = "#031720";
                 s.width = 210 + "px";
                 s.height = 130 + "px";
-                s.right = 500 + "px";
+                s.right = 600 + "px";
                 s.top = 20 + "px";
                 s.borderRadius = 10 + "px";
             }
