@@ -83,7 +83,7 @@ namespace A2 {
         }
 
         let cr: card = {
-            name: "reverse",
+            name: "Richtungswechsel",
             green: 2,
             red: 2,
             blue: 2,
@@ -91,7 +91,7 @@ namespace A2 {
         }
 
         let cexpose: card = {
-            name: "expose",
+            name: "Aussetzen",
             green: 2,
             red: 2,
             blue: 2,
@@ -99,7 +99,7 @@ namespace A2 {
         }
 
         let cplus2: card = {
-            name: "plus2",
+            name: "+2",
             green: 2,
             red: 2,
             blue: 2,
@@ -114,29 +114,19 @@ namespace A2 {
             yellow: 1
 
         }
-        interface cardblack {
-            name: string;
-            count: number;
-        }
-
-        let cb4: cardblack = {
-            name: "plus4",
-            count: 4
-        }
-        let cbwish: cardblack = {
-            name: "wish",
-            count: 4
-        }
-
-        let array: card[] = [c1, c2, c3, c4, c5, c6, c7, c8, c9, cr, cexpose, cplus2, c0];
-
+      
+        let cb4: number= 4;
+        let cbwish: number=4;
+       
+        let allcards: card[] = [c1, c2, c3, c4, c5, c6, c7, c8, c9, cr, cexpose, cplus2, c0];
+        let color: string = "";
+   
 
         function getRandom(n: number) {
             return Math.floor(Math.random() * Math.floor(n));
+            };
 
             function placeDiv(_color: string, _n: string, _x: number): void {
-
-                //console.log(_color, _n, _x)
 
 
                 let div: HTMLDivElement = document.createElement("div");
@@ -144,29 +134,146 @@ namespace A2 {
                 div.setAttribute("id", "a" + _x)
                 document.getElementById("a" + _x).innerHTML += _n;
 
-                let s: CSSStyleDeclaration = div.style;
-                s.border = "thin solid black";
+                let s: CSSStyleDeclaration = div.style;//Karten werden hier gestaltet
+                s.fontSize = 25 + "px";
+                s.border = "thin solid white";
+                s.paddingTop = 110 + "px";
                 s.textAlign = "center";
                 s.position = "absolute";
                 s.backgroundColor = _color;
-                s.width = 130 + "px";
-                s.height = 200 + "px";
-                s.left = (_x + 0.5) * 140 + "px";
-                s.bottom = 40 + "px";
+                s.width = 150 + "px";
+                s.height = 150 + "px";
+                s.bottom = 35+ "px";
+                s.left = (_x + 0.2) * 120 + "px";
                 s.borderRadius = 10 + "px";
 
-
-                if (c == "#000000") {
-                    s.color = "white";
-                }
-                if (c == "#0000ff") {
+                if (color == "#000000") { //falls eine schwarze Karte aus dem Zufallsgenerator gezogen wird, wird die Schriftfarbe Weiß
                     s.color = "white";
                 }
             }
-        }
-        }
+
+
+            let x: number;
+            let input: string = prompt("Mit wie vielen Karten möchtest du spielen?");//Nutzer wird gefragt wie viele Karten er möchte
+            x = Number(input);
+
+
+            for (let i: number = 0; i < x; i++) { // i = variable, x ist abhängig davon, mit wie viel Karten der Spieler spielen möchte. i wird nie größer als x
+                let l = getRandom(15); //Zufallsgenerator, 13 farbige Karten und 2 schwarze Karten
+                if (l == 13 && cb4 > 0) { //Schwarze Spezial-Karte 
+                    color = "#000000";
+                    cb4--; //"gezogene" Karte wird aus dem Kartenpool abgezogen, damit die gleiche Karte nicht noch einmal gezogen wird
+                    placeDiv(color, "+4", i);
+                    continue; //springt wieder zum Anfang der for-schleife
+                }
+                 else if (l == 13 && cb4<= 0) { //"Normale" farbige Karten
+                    i--;
+                    continue;
+                }
+                else {
+                    if (l == 14 && cbwish > 0) { //Weitere schwarze Spezialkarte
+                        color = "#000000";
+                        cbwish--;
+                        placeDiv(color, "Wunschfarbe", i);
+                        continue;
+                    }
+                    else if (l == 14 && cbwish <= 0) {
+                        i--;
+                        continue;
+                    }
+                    else {
+                        let y: number = getRandom(4); //Zufallsgenerator für Ermittlung der Farben
+                        switch (y) {
+                            case 0:// Die Farben werden in 4 verschiedene cases unterteilt
+                                color = "#fb6564";
+                                if (allcards[l].red > 0) {
+                                    placeDiv(color, allcards[l].name, i);
+                                    allcards[l].red--;
+                                    continue;//Bei jedem "continue" wird wieder von Anfang der Schleife begonnen
+                                }
+                            case 1:
+                                color = "#c5ecaa";
+                                if (allcards[l].green > 0) {
+                                    placeDiv(color, allcards[l].name, i);
+                                    allcards[l].green--;
+                                    continue;
+                                }
+
+                            case 2:
+                                color = "#4b8ad1";
+                                if (allcards[l].blue > 0) {
+                                    placeDiv(color,allcards[l].name, i);
+                                    allcards[l].blue--;
+                                    continue;
+                                }
+
+                            case 3:
+                                color = "#f0f16a";
+                                if (allcards[l].yellow > 0) {
+                                    placeDiv(color, allcards[l].name, i);
+                                    allcards[l].yellow--;
+                                    continue;
+                                }
+                                else {
+                                    i--;
+                                    continue
+                                }
+
+                        }
+
+                    }
+
+                }
+            }
+            function deck() { // Karte- Aufnehmen- Feld wird erstellt durch div
+                let div = document.createElement("div");
+                document.body.appendChild(div);
+                div.setAttribute("id", "Neue Karte");
+                document.getElementById("Neue Karte").innerHTML += "Neue Karte";
+                let s = div.style;
+                s.fontSize = 20 +"px";
+                s.border = "solid black";
+                s.textAlign = "center";
+                s.position = "absolute";
+                s.backgroundColor = "#0000000";
+                s.width = 150 + "px";
+                s.height = 20 + "px";
+                s.left = 20 + "px";
+                s.top = 25 + "px";
+                s.borderRadius = 10 + "px";
+            }
+
+            function AblageStapel() {// Anspielender Kartenstapel wird erstellt durch div
+                let div = document.createElement("div");
+                document.body.appendChild(div);
+                div.setAttribute("id", "Anzuspielende Karte");
+                document.getElementById("Anzuspielende Karte").innerHTML += "Anzuspielende Karte";
+                let s = div.style;
+                s.fontSize= 20 + "px";
+                s.border = "solid white";
+                s.paddingTop = 10 + "px";
+                s.color = "white"
+                s.textAlign = "center";
+                s.position = "absolute";
+                s.backgroundColor = "#031720";
+                s.width = 210 + "px";
+                s.height = 130 + "px";
+                s.right = 500 + "px";
+                s.top = 20 + "px";
+                s.borderRadius = 10 + "px";
+            }
+    
+   
+            AblageStapel();
+            deck();
+ }
+
+        document.addEventListener("DOMContentLoaded", (UNO));
+}
 
 
 
 
 
+
+   
