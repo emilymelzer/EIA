@@ -120,9 +120,13 @@ namespace A2 {
        
         let allcards: card[] = [c1, c2, c3, c4, c5, c6, c7, c8, c9, cr, cexpose, cplus2, c0];
         let color: string = "";
-   
+        
+        
+            let x: number;
+            let input: string = prompt("Mit wie vielen Karten möchtest du spielen?");//Nutzer wird gefragt wie viele Karten er möchte
+            x = Number(input);
 
-        function getRandom(n: number) {
+            function getRandom(n: number) {
             return Math.floor(Math.random() * Math.floor(n));
             };
 
@@ -151,11 +155,6 @@ namespace A2 {
                     s.color = "white";
                 }
             }
-
-
-            let x: number;
-            let input: string = prompt("Mit wie vielen Karten möchtest du spielen?");//Nutzer wird gefragt wie viele Karten er möchte
-            x = Number(input);
 
 
             for (let i: number = 0; i < x; i++) { // i = variable, x ist abhängig davon, mit wie viel Karten der Spieler spielen möchte. i wird nie größer als x
@@ -192,7 +191,7 @@ namespace A2 {
                                     continue;//Bei jedem "continue" wird wieder von Anfang der Schleife begonnen
                                 }
                             case 1:
-                                color = "#c5ecaa";
+                                color = "#b0f6aa"
                                 if (allcards[l].green > 0) {
                                     placeDiv(color, allcards[l].name, i);
                                     allcards[l].green--;

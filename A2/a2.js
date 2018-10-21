@@ -96,6 +96,9 @@ var A2;
         var cbwish = 4;
         var allcards = [c1, c2, c3, c4, c5, c6, c7, c8, c9, cr, cexpose, cplus2, c0];
         var color = "";
+        var x;
+        var input = prompt("Mit wie vielen Karten möchtest du spielen?"); //Nutzer wird gefragt wie viele Karten er möchte
+        x = Number(input);
         function getRandom(n) {
             return Math.floor(Math.random() * Math.floor(n));
         }
@@ -121,9 +124,6 @@ var A2;
                 s.color = "white";
             }
         }
-        var x;
-        var input = prompt("Mit wie vielen Karten möchtest du spielen?"); //Nutzer wird gefragt wie viele Karten er möchte
-        x = Number(input);
         for (var i = 0; i < x; i++) {
             var l = getRandom(15); //Zufallsgenerator, 13 farbige Karten und 2 schwarze Karten
             if (l == 13 && cb4 > 0) {
@@ -158,7 +158,7 @@ var A2;
                                 continue; //Bei jedem "continue" wird wieder von Anfang der Schleife begonnen
                             }
                         case 1:
-                            color = "#c5ecaa";
+                            color = "#b0f6aa";
                             if (allcards[l].green > 0) {
                                 placeDiv(color, allcards[l].name, i);
                                 allcards[l].green--;
