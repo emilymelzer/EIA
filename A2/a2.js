@@ -32,11 +32,11 @@ var A2;
     function displayHand() {
         for (var y = 0; y < handcards.length; y++) {
             (handcards[y].value, handcards[y].color);
-            var div = document.createElement("div");
-            document.getElementById("Karte").appendChild(div);
-            div.innerHTML = handcards[y].value;
-            div.classList.add("Karte");
-            div.classList.add(handcards[y].color);
+            var card = document.createElement("div");
+            document.getElementById("Karte");
+            card.innerHTML = handcards[y].value;
+            card.classList.add("Karte");
+            card.classList.add(handcards[y].color);
         }
     }
     console.log(deck);

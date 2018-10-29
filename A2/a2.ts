@@ -39,11 +39,11 @@ let deck: card[]=[{ color: "red", value: "0" }, { color: "green", value: "0" }, 
           function displayHand(): void {
             for (let y: number =0; y< handcards.length; y++) {
                 (handcards[y].value, handcards[y].color);
-        let div: HTMLElement = document.createElement("div");
-        document.getElementById("Karte").appendChild(div);
-        div.innerHTML = handcards[y].value;
-        div.classList.add("Karte");
-        div.classList.add(handcards[y].color);
+        let card: HTMLElement = document.createElement("div");
+        document.getElementById("Karte")
+        card.innerHTML = handcards[y].value;
+        card.classList.add("Karte");
+        card.classList.add(handcards[y].color);
     }       
 }
                 
