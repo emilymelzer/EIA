@@ -1,0 +1,63 @@
+#aufnehmen{
+	width: 200px;
+	height: 20px;
+	left: 50px;
+	top: 20px;
+	border: solid black 5px;
+	border-radius: 10px;
+	position: absolute;
+	padding: 20px;
+	padding-left:100px;
+	color: #ffffff;
+	background-color: #9c130a;
+	font-family:'Helvetica';
+	font-size:1.5em;
+}
+
+#ablage{
+  	width: 170px;
+	height: 130px;
+	right: 550px;
+	top: 150px;
+	border: solid black 5px;
+	border-radius: 10px;
+	position: absolute;
+	color: white;
+	background-color: #000000;
+	font-family:'Helvetica';
+	padding: 20px;
+	padding-left: 100px;
+	padding-top:30px;
+	font-size:2em;
+}
+
+#Karte {
+	height:170px;
+	width:130px;
+	border: solid black 5px;
+	border-radius: 10px;
+	position:absolute;
+	font-family:'Helvetica';
+	font-size:2em;
+}
+.red{
+    color: white;
+    background-color: #af271b;
+}
+.yellow{
+	color:black;
+	background-color: #f5ff98;
+}
+.blue{
+	color:white;
+	background-color: #000087;
+}
+.green{
+	color:black;
+	background-color: #93d188;
+}
+.black{
+	color:white;
+	background-color:black;
+}
+
