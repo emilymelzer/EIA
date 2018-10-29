@@ -5,7 +5,7 @@ namespace A2 {
            value: string;
         }   
 let colors:string[]=["red","blue","green","yellow"];
-let values:string[]=["0","1","2","3","4","5","6","7","8","9","+2","x","<->"]
+let values:string[]=["1","2","3","4","5","6","7","8","9","+2","x","<->"]
 let deck: card[]=[{ color: "red", value: "0" }, { color: "green", value: "0" }, { color: "blue", value: "0" }, { color: "yellow", value: "0" },
         { color: "black", value: "+4" }, { color: "black", value: "+4" }, { color: "black", value: "+4" }, { color: "black", value: "+4" },
         { color: "black", value: "wish" }, { color: "black", value: "wish" }, { color: "black", value: "wish" }, { color: "black", value: "wish" }];
@@ -24,6 +24,8 @@ let deck: card[]=[{ color: "red", value: "0" }, { color: "green", value: "0" }, 
 // l = Zufallsvariable        
             let handcards: card[]=[];
             
+    
+            function anzahl():void{
             let x: number;
             let input: string = prompt("Mit wie vielen Karten möchtest du spielen?");//Nutzer wird gefragt wie viele Karten er möchte
             x = Number(input);
@@ -46,8 +48,8 @@ let deck: card[]=[{ color: "red", value: "0" }, { color: "green", value: "0" }, 
         card.classList.add(handcards[y].color);
     }       
 }
-                
+ }               
     console.log(deck);
-    
+    document.addEventListener("DOMContentLoaded", (anzahl));
  
    }

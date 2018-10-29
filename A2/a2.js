@@ -1,7 +1,7 @@
 var A2;
 (function (A2) {
     var colors = ["red", "blue", "green", "yellow"];
-    var values = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "x", "<->"];
+    var values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "x", "<->"];
     var deck = [{ color: "red", value: "0" }, { color: "green", value: "0" }, { color: "blue", value: "0" }, { color: "yellow", value: "0" },
         { color: "black", value: "+4" }, { color: "black", value: "+4" }, { color: "black", value: "+4" }, { color: "black", value: "+4" },
         { color: "black", value: "wish" }, { color: "black", value: "wish" }, { color: "black", value: "wish" }, { color: "black", value: "wish" }];
@@ -18,27 +18,30 @@ var A2;
     // x = Variable für Anzahl der mitzuspielenden Karten
     // l = Zufallsvariable        
     var handcards = [];
-    var x;
-    var input = prompt("Mit wie vielen Karten möchtest du spielen?"); //Nutzer wird gefragt wie viele Karten er möchte
-    x = Number(input);
-    function coincidence(random) {
-        if (random === void 0) { random = x; }
-        for (var l_1 = random; l_1 > 0; l_1--)
-            ;
-        var l = Math.floor(Math.random() * (deck.length - 1));
-        handcards.push(deck[l]);
-        deck.splice(l, 1); //Array muss um 1 kleiner werden, wenn man 1 Karte rauszieht
-    }
-    function displayHand() {
-        for (var y = 0; y < handcards.length; y++) {
-            (handcards[y].value, handcards[y].color);
-            var card = document.createElement("div");
-            document.getElementById("Karte");
-            card.innerHTML = handcards[y].value;
-            card.classList.add("Karte");
-            card.classList.add(handcards[y].color);
+    function anzahl() {
+        var x;
+        var input = prompt("Mit wie vielen Karten möchtest du spielen?"); //Nutzer wird gefragt wie viele Karten er möchte
+        x = Number(input);
+        function coincidence(random) {
+            if (random === void 0) { random = x; }
+            for (var l_1 = random; l_1 > 0; l_1--)
+                ;
+            var l = Math.floor(Math.random() * (deck.length - 1));
+            handcards.push(deck[l]);
+            deck.splice(l, 1); //Array muss um 1 kleiner werden, wenn man 1 Karte rauszieht
+        }
+        function displayHand() {
+            for (var y = 0; y < handcards.length; y++) {
+                (handcards[y].value, handcards[y].color);
+                var card = document.createElement("div");
+                document.getElementById("Karte");
+                card.innerHTML = handcards[y].value;
+                card.classList.add("Karte");
+                card.classList.add(handcards[y].color);
+            }
         }
     }
     console.log(deck);
+    document.addEventListener("DOMContentLoaded", (anzahl));
 })(A2 || (A2 = {}));
 //# sourceMappingURL=a2.js.map
