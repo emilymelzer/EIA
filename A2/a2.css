@@ -31,33 +31,42 @@
 	padding-left: 100px;
 	padding-top:30px;
 	font-size:2em;
-}
 
-#Karte {
-	height:170px;
+}
+  .Karte {
+	height:190px;
 	width:130px;
 	border: solid black 5px;
 	border-radius: 10px;
 	position:absolute;
 	font-family:'Helvetica';
 	font-size:2em;
-	top:200px;
-}
+	top:450px;
+	bottom: 100px;
+	left:50px;
+	padding: 20px;
+	padding-top:50px;
+	font-size:2em;
+  }
+  #Karte{
+  
+  }
+  
 .red{
     color: white;
-    background-color: #af271b;
+    background-color: #f24d38;
 }
 .yellow{
 	color:black;
-	background-color: #f5ff98;
+	background-color: #fefc05;
 }
 .blue{
 	color:white;
-	background-color: #000087;
+	background-color: #284bff;
 }
 .green{
 	color:black;
-	background-color: #93d188;
+	background-color: #35d700;
 }
 .black{
 	color:white;
