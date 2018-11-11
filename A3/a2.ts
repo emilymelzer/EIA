@@ -43,8 +43,8 @@ namespace A3 {
         document.getElementById("aufnehmen").addEventListener("click", drawCard);
         document.addEventListener("keydown", drawCard);
         document.getElementById("sort").addEventListener("click", sort);
-        document.addEventListener("click", playCards);
-        document.getElementById("ablage").addEventListener("click", playCards);
+       // document.addEventListener("click", playCards);
+       
         
 
 
@@ -109,26 +109,27 @@ namespace A3 {
                 card.classList.add("Karte");
                 card.classList.add(handcards[y].color);
                 document.getElementById("Karte").appendChild(card);
-                card.addEventListener("click", playCards);
+               // card.addEventListener("click", playCards);
             }
             console.log(handcards);
         }
 
 
-        function playCards(_event: MouseEvent): void {
+       /* function playCards(_event: MouseEvent): void {
             document.getElementById("ablage").innerHTML = "";
             let selectedCard: HTMLElement = <HTMLElement>_event.target;
             let c: number = parseInt(selectedCard.id);
             let card: HTMLElement = document.createElement("div");
-            card.innerText = handcards[c].value;
-            card.classList.add(handcards[c].color);
+           // card.innerText = handcards[c].value;
+          //  card.classList.add(handcards[c].color);
             storage.push(handcards[c]);
             handcards.splice(c, 1);
             displayHand();
            
         }
-
+*/
         console.log(deck);
-    document.addEventListener("DOMContentLoaded", playCards);
+        document.addEventListener("DOMContentLoaded", howManyCards);
+   // document.addEventListener("DOMContentLoaded", playCards);
     
     }   

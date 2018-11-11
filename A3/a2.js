@@ -31,8 +31,7 @@ var A3;
         document.getElementById("aufnehmen").addEventListener("click", drawCard);
         document.addEventListener("keydown", drawCard);
         document.getElementById("sort").addEventListener("click", sort);
-        document.addEventListener("click", playCards);
-        document.getElementById("ablage").addEventListener("click", playCards);
+        // document.addEventListener("click", playCards);
     }
     function drawCard() {
         createHand(1);
@@ -78,22 +77,23 @@ var A3;
             card.classList.add("Karte");
             card.classList.add(handcards[y].color);
             document.getElementById("Karte").appendChild(card);
-            card.addEventListener("click", playCards);
         }
         console.log(handcards);
     }
-    function playCards(_event) {
-        document.getElementById("ablage").innerHTML = "";
-        var selectedCard = _event.target;
-        var c = parseInt(selectedCard.id);
-        var card = document.createElement("div");
-        card.innerText = handcards[c].value;
-        card.classList.add(handcards[c].color);
-        storage.push(handcards[c]);
-        handcards.splice(c, 1);
-        displayHand();
-    }
+    /* function playCards(_event: MouseEvent): void {
+         document.getElementById("ablage").innerHTML = "";
+         let selectedCard: HTMLElement = <HTMLElement>_event.target;
+         let c: number = parseInt(selectedCard.id);
+         let card: HTMLElement = document.createElement("div");
+        // card.innerText = handcards[c].value;
+       //  card.classList.add(handcards[c].color);
+         storage.push(handcards[c]);
+         handcards.splice(c, 1);
+         displayHand();
+        
+     }
+*/
     console.log(deck);
-    document.addEventListener("DOMContentLoaded", playCards);
+    document.addEventListener("DOMContentLoaded", howManyCards);
 })(A3 || (A3 = {}));
 //# sourceMappingURL=a2.js.map
