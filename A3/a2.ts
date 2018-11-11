@@ -11,7 +11,7 @@ namespace A3 {
  
     
     interface card {
-        color: string;
+        color: string; 
         value: string;
     }
     let colors: string[] = ["red", "blue", "green", "yellow"];
