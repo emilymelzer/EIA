@@ -5,13 +5,14 @@
 	height: 20px;
 	left: 50px;
 	top: 20px;
-	border: solid black 5px;
+	border: solid white 5px;
 	border-radius: 10px;
 	position: absolute;
 	padding: 20px;
 	padding-left:100px;
+	margin-left: 40px;
 	color: #ffffff;
-	background-color: #9c130a;
+	background-color: #969696;
 	font-family:'Helvetica';
 	font-size:1.5em;
 }
@@ -33,43 +34,52 @@
 	font-size:2em;
 
 }
-  .Karte {
-	height:190px;
-	width:130px;
-	border: solid black 5px;
+ .Karte {
+	height:200px;
+	width:140px;
+	border: solid white 1px;
 	border-radius: 10px;
-	position:absolute;
+	position: relative;
 	font-family:'Helvetica';
 	font-size:2em;
+	margin-left: 30px;
 	top:450px;
 	bottom: 100px;
 	left:50px;
 	padding: 20px;
 	padding-top:50px;
 	font-size:2em;
-  }
-  #Karte{
-  
-  }
-  
+	float:left;
+ }
+	
+}
+  #Karte {
+	height: 300px;
+	
+}
 .red{
     color: white;
-    background-color: #f24d38;
+    background-color: #dd2100;
+   
 }
 .yellow{
 	color:black;
 	background-color: #fefc05;
+	
 }
 .blue{
 	color:white;
-	background-color: #284bff;
+	background-color: #2236b9;
+	
 }
 .green{
 	color:black;
-	background-color: #35d700;
+	background-color: #4a912c;
+	
 }
 .black{
 	color:white;
 	background-color:black;
+	
 }
 

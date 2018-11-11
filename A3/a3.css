@@ -1,0 +1,105 @@
+@charset "UTF-8";
+body {
+	background-color: #cfdbd9;
+}
+#aufnehmen {
+	width: 200px;
+	height: 20px;
+	left: 50px;
+	top: 20px;
+	border: solid white 5px;
+	border-radius: 10px;
+	position: absolute;
+	padding: 20px;
+	padding-left: 100px;
+	margin-left: 40px;
+	color: #ffffff;
+	background-color: #969696;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.5em;
+}
+
+#ablage {
+	width: 170px;
+	height: 130px;
+	right: 550px;
+	top: 150px;
+	border: solid white 5px;
+	border-radius: 10px;
+	position: absolute;
+	color: white;
+	background-color: #000000;
+    font-family: 'Quicksand', sans-serif;
+	padding: 20px;
+	padding-left: 100px;
+	padding-top: 30px;
+	font-size: 2em;
+}
+
+.Karte {
+	height: 200px;
+	width: 140px;
+	border: solid white 3px;
+	border-radius: 10px;
+	position: relative;
+    font-family: 'Quicksand', sans-serif;
+	font-size: 2em;
+	margin-left: 30px;
+	top: 450px;
+	bottom: 100px;
+	left: 50px;
+	padding: 20px;
+	padding-top: 50px;
+	font-size: 2em;
+	float: left;
+}
+
+}
+#Karte {
+	height: 300px;
+}
+
+#sort {
+
+	width: 220px;
+	height: 50px;
+	position: absolute;
+	font-size:1.5em;
+	text-align: center;
+	text-position: middle;
+	padding-top: 15px;
+	right: 590px;
+	border: solid white 5px;
+	border-radius: 10px;
+	top:370px;
+	position: absolute;
+	color: white;
+	background-color: #535353;
+	font-family: 'Quicksand', sans-serif;
+	
+}
+
+.red {
+	color: white;
+	background-color: #dd2100;
+}
+
+.yellow {
+	color: black;
+	background-color: #fefc05;
+}
+
+.blue {
+	color: white;
+	background-color: #2236b9;
+}
+
+.green {
+	color: black;
+	background-color: #4a912c;
+}
+
+.black {
+	color: white;
+	background-color: black;
+}

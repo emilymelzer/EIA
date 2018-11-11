@@ -1,3 +1,10 @@
+/* Aufgabe: Aufgabe 3
+Name: Emily Melzer
+Matrikel: 2592114
+Datum: 08.11.2018
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
+Er wurde nicht kopiert und auch nicht diktiert. */
+
 namespace A2 {
 
     interface card {
@@ -26,15 +33,15 @@ namespace A2 {
 
 
 
-    function anzahl(): void {
+    function howManyCards(): void {
         let x: number;
         let input: string = prompt("Mit wie vielen Karten möchtest du spielen?");//Nutzer wird gefragt wie viele Karten er möchte
         x = Number(input);
 
-        coincidence(x);
+        random(x);
     }
 
-    function coincidence(_x: number): void {
+    function random(_x: number): void {
 
         for (let k: number = _x; k > 0; k--) {
             let l = Math.floor(Math.random() * (deck.length - 1));
@@ -48,7 +55,7 @@ namespace A2 {
     function displayHand(): void {
         for (let y: number = 0; y < handcards.length; y++) {
           //  (handcards[y].value, handcards[y].color);
-            let card: HTMLElement = document.createElement("div");           
+            let card: HTMLDivElement = document.createElement("div");           
             card.innerText = handcards[y].value;
             card.classList.add("Karte");
             card.classList.add(handcards[y].color);
@@ -58,6 +65,6 @@ namespace A2 {
     }
 
     console.log(deck);
-    document.addEventListener("DOMContentLoaded", anzahl);
+    document.addEventListener("DOMContentLoaded", howManyCards);
 
 }
