@@ -1,12 +1,11 @@
 /* Aufgabe: Aufgabe 3
 Name: Emily Melzer
-Matrikel: 259114
+Matrikel: 2592114
 Datum: 08.11.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert. */
 var A3;
 (function (A3) {
-    document.addEventListener("DOMContentLoaded", howManyCards);
     var colors = ["red", "blue", "green", "yellow"];
     var values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "x", "<->"];
     var deck = [{ color: "red", value: "0" }, { color: "green", value: "0" }, { color: "blue", value: "0" }, { color: "yellow", value: "0" },
@@ -31,7 +30,7 @@ var A3;
         document.getElementById("aufnehmen").addEventListener("click", drawCard);
         document.addEventListener("keydown", drawCard);
         document.getElementById("sort").addEventListener("click", sort);
-        // document.addEventListener("click", playCards);
+        document.getElementById("Karte").addEventListener("click", playCard);
     }
     function drawCard() {
         createHand(1);
@@ -42,22 +41,25 @@ var A3;
         }
     }
     function sort() {
-        handcards.sort();
+        console.log(handcards);
+        document.getElementById("sort").innerHTML = "";
+        handcards.sort(function (c1, c2) {
+            if (c1.color > c2.color) {
+                return 1;
+            }
+            if (c1.color < c2.color) {
+                return -1;
+            }
+            return 0;
+        });
+        console.log(handcards);
         displayHand();
-    }
-    function compareCards(card1, card2) {
-        if (card1.color > card2.color) {
-            return 1;
-        }
-        if (card1.color < card2.color) {
-            return -1;
-        }
-        return 0;
     }
     function howManyCards() {
         var x;
         var input = prompt("Mit wie vielen Karten möchtest du spielen?"); //Nutzer wird gefragt wie viele Karten er möchte
         x = Number(input);
+        listeners();
         createHand(x);
     }
     function createHand(_x) {
@@ -72,28 +74,27 @@ var A3;
         document.getElementById("Karte").innerHTML = "";
         for (var y = 0; y < handcards.length; y++) {
             //  (handcards[y].value, handcards[y].color);
-            var card = document.createElement("div");
+            var card = document.createElement("card");
+            document.getElementById("Karte").appendChild(card);
             card.innerText = handcards[y].value;
             card.classList.add("Karte");
             card.classList.add(handcards[y].color);
-            document.getElementById("Karte").appendChild(card);
         }
-        console.log(handcards);
     }
-    /* function playCards(_event: MouseEvent): void {
-         document.getElementById("ablage").innerHTML = "";
-         let selectedCard: HTMLElement = <HTMLElement>_event.target;
-         let c: number = parseInt(selectedCard.id);
-         let card: HTMLElement = document.createElement("div");
-        // card.innerText = handcards[c].value;
-       //  card.classList.add(handcards[c].color);
-         storage.push(handcards[c]);
-         handcards.splice(c, 1);
-         displayHand();
-        
-     }
-*/
+    function playCard(_event) {
+        var selectedCard = _event.target.id;
+        console.log(selectedCard);
+        document.getElementById("ablage").innerHTML = "";
+        var cardToPlay = document.createElement("div");
+        cardToPlay.innerText = handcards[Number(selectedCard)].value;
+        cardToPlay.classList.add("card");
+        cardToPlay.classList.add(handcards[Number(selectedCard)].color);
+        document.getElementById("ablage").appendChild(cardToPlay);
+        handcards.splice(Number(selectedCard), 1);
+        displayHand();
+    }
     console.log(deck);
+    console.log(handcards);
     document.addEventListener("DOMContentLoaded", howManyCards);
 })(A3 || (A3 = {}));
 //# sourceMappingURL=a2.js.map
