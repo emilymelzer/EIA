@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+h2 {
+	font-size:1.4em;
+	font-family: 'Quicksand', sans-serif;
+	color: #5e150e;
+	margin: 20px;
+}
+legend {
+	font-size:1.5em;
+	font-family: 'Quicksand', sans-serif;
+	background-color: white;
+	color: #000000;
+	
+}
+fieldset {
+	border: solid #adacae 5px;
+	
+	
+}
+p {
+	font-size:1.0em;
+	font-family: 'Quicksand', sans-serif;
+	margin: 10px;
+}
+select {
+	font-size:1.2em;
+	font-family: 'Quicksand', sans-serif;
+	background-color: white;
+	color: #000000;
+}
+h1 {
+	font-size:2.5em;
+	font-family: 'Quicksand', sans-serif;
+}
+#firstname {
+	font-family: 'Quicksand', sans-serif;
+}
+#name {
+	font-family: 'Quicksand', sans-serif;
+}
+#street {
+	font-family: 'Quicksand', sans-serif;
+}
+#number {
+	font-family: 'Quicksand', sans-serif;
+}
