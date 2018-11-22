@@ -181,5 +181,6 @@ function generateKerzenfarbe(): void {
         document.getElementById("Kerzenfarbe").appendChild(label);
         document.getElementById("Kerzenfarbe").appendChild(document.createElement("br"));
             }
+    
 }
   
