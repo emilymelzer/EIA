@@ -6,7 +6,8 @@
 </style>
 
 <link rel="stylesheet" type="text/css" href="a4.css">
-<script src="a4.js"></script>
+<script src="a4handler.js"></script>
+<script src="a4code.js"></script>
 
 <meta charset="UTF-8">
 <title>Weihnachtskonfiguration</title>
@@ -14,34 +15,49 @@
 <body>
 	<fieldset id="fieldset">
 
-	<h1>Weihnachtskonfigurator</h1>
-	<fieldset>
-		<legend>Baumtyp und Halterung</legend>
-		<h2>Waehlen sie einen Typ Baum aus</h2>
-		<a id="Baumtyp"></a>
-		<h2>Welche Halterung möchten sie dazu?</h2>
-		<a id="Halterung"></a>
-	</fieldset>
-	<fieldset>
-		<legend>Baumschmuck und Kerzen</legend>
-		<a id="Kugeln"></a> <a id="Lametta"></a> <a id="Kerzen"></a>
-	</fieldset>
-	<fieldset>
-		<legend>Lieferoptionen</legend>
-		<h2>Mit welcher Lieferoption soll das Paket versendet werden?</h2>
+		<h1>Weihnachtskonfigurator</h1>
+		<img src="images/eia weihanchten.jpg">
+		<fieldset class="box">
+			<legend>Baumtyp und Halterung</legend>
+			<h2>Waehlen sie einen Typ Baum aus</h2>
+			<a id="Baumtyp"></a>
+			<h2>Welche Halterung möchten sie dazu?</h2>
+			<a id="Halterung"></a>
+		</fieldset>
+		<fieldset>
+			<legend>Kugeln</legend>
+			<a id="Kugeln"></a>
+		</fieldset>
+		<fieldset>
+		<legend>Lametta</legend>
+			<a id="Lametta"></a>
+		</fieldset>
+		<fieldset >
+		<legend>Kerzentyp</legend>
+			<div id="Kerzentyp"></div>
+
+		</fieldset>
+		<fieldset>
+		<legend>Kerzenfarbe</legend>
+		<div id="Kerzenfarbe"></div>
+		</fieldset>
+		<fieldset>
+			<legend>Lieferoptionen</legend>
+			<h2>Mit welcher Lieferoption soll das Paket versendet werden?</h2>
 			<select name="Delivery" id="delivery">
-					<option value="" disabled selected>Lieferoptionen</option>
-					<option value="Express">Express</option>
-					<option value="Standard">Standardversand</option>
-				</select>
-			
-		
-	</fieldset>
-	<fieldset>
-		<legend>Lieferadresse</legend>
-		<h2>An welche Adresse soll das Paket geliefert werden?</h2>
-				<p>Vorname <input type="text" name="FirstName"
-				placeholder="tippe Vorname hier" required id="firstname" /><br>
+				<option value="" disabled selected>Lieferoptionen</option>
+				<option value="Express">Express</option>
+				<option value="Standard">Standardversand</option>
+			</select>
+
+
+		</fieldset>
+		<fieldset>
+			<legend>Lieferadresse</legend>
+			<h2>An welche Adresse soll das Paket geliefert werden?</h2>
+			<p>
+				Vorname <input type="text" name="FirstName"
+					placeholder="tippe Vorname hier" required id="firstname" /><br>
 				Name <input type="text" name="LastName"
 					placeholder="tippe Nachname hier" required id="name" /><br>
 				Straße <input type="text" name="Street"
@@ -50,6 +66,6 @@
 					pattern="[0-9, A-Z]{5}" placeholder="bitte 5 Zahlen eingeben"
 					required id="PLZ" /><br> Ort <input type="text" name="Town"
 					placeholder="tippe Stadtname hier" required id="number" /><br>
-	</fieldset>
+		</fieldset>
 	</fieldset>
 </html>

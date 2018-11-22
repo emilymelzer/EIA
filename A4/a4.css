@@ -1,5 +1,11 @@
 @charset "UTF-8";
-
+img {
+	width: 50px;
+	height: 100px;
+	position: absolute;
+	left: 520px;
+	top: 20px;
+}
 h2 {
 	font-size:1.4em;
 	font-family: 'Quicksand', sans-serif;
@@ -15,6 +21,8 @@ legend {
 }
 fieldset {
 	border: solid #adacae 5px;
+	background-color: white;
+	color:black;
 	
 	
 }
@@ -44,4 +52,28 @@ h1 {
 }
 #number {
 	font-family: 'Quicksand', sans-serif;
+}
+#Baumtyp {
+		font-family: 'Quicksand', sans-serif;
+}
+#Halterung {
+		font-family: 'Quicksand', sans-serif;
+		
+}
+#Kugeln {
+		font-family: 'Quicksand', sans-serif;
+}
+#Lametta {
+		font-family: 'Quicksand', sans-serif;
+}
+#Kerzentyp {
+		font-family: 'Quicksand', sans-serif;
+}
+#Kerzenfarbe {
+		font-family: 'Quicksand', sans-serif;
+}
+#fieldset {
+	background-color: #fdfcff;
+	color: #2c2c2d;
+	border: solid #770c11 10px;
 }
