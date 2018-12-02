@@ -1,5 +1,5 @@
 import * as Http from "http"; //Es wird "Http" von "http" etwas importiert
-
+ 
 namespace L06_SendData {
     console.log("Starting server");
     let port: number = process.env.PORT; // "port" ist vom Datentyp number
