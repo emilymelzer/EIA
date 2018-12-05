@@ -18,7 +18,6 @@ var L06_SendData;
         console.log("I hear voices!"); //Auf der Konsole wird "I hear voices" ausgegeben
         _response.setHeader("content-type", "text/html; charset=utf-8"); //Mit "_response.setHeader" wird die Variable "_response" in den Header der HTML-Datei "content-type","text/html; charset=utf-8" eingesetzt
         _response.setHeader("Access-Control-Allow-Origin", "*"); //"Access-Control-Allow-Origin" wird auch in den Header gegeben. 
-        _response.write(_request.url); //mit "_response.write" wird auf die "_request.url" zugegriffen
         var url = Url.parse(_request.url, true).query;
         console.log(url);
         for (var key in url) {
