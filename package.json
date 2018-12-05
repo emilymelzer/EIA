@@ -3,9 +3,9 @@
 	"version" : "1.0.0",
 	"description" : "Minimal server just bouncing the URL",
 	"author" : "Jirka",
-	"main" : "EIA2/A6/server.js",
+	"main" : "server.js",
 	"scripts" : {
-		"start" : "node EIA2/A6/server.js"},
+		"start" : "node A6/server.js"},
 	"engines" : {
 		"node" : "8.10.0"
 	},
