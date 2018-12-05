@@ -1,6 +1,10 @@
 import * as Http from "http"; //Es wird "Http" von "http" etwas importiert
- 
+import * as Url from "url";
+
 namespace L06_SendData {
+    interface Product {
+        [key: string]: number;
+        }
     console.log("Starting server");
     let port: number = process.env.PORT; // "port" ist vom Datentyp number
     if (port == undefined) // Wenn "port" nicht definiert ist, dann
@@ -22,7 +26,16 @@ namespace L06_SendData {
         _response.setHeader("Access-Control-Allow-Origin", "*"); //"Access-Control-Allow-Origin" wird auch in den Header gegeben. 
 
         _response.write(_request.url); //mit "_response.write" wird auf die "_request.url" zugegriffen
+       
+        let url:Product =Url.parse(_request.url,true).query;
+        console.log(url);
         
+        for (let key in url) {
+            console.log(url[key]);
+            console.log(key);
+            
+            _response.write(key + "=" + url[key] + "<br>");
+            } 
         _response.end(); //"response" wird beendet
     }
 }

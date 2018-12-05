@@ -1,5 +1,6 @@
 "use strict";
 var Http = require("http"); //Es wird "Http" von "http" etwas importiert
+var Url = require("url");
 var L06_SendData;
 (function (L06_SendData) {
     console.log("Starting server");
@@ -18,7 +19,13 @@ var L06_SendData;
         _response.setHeader("content-type", "text/html; charset=utf-8"); //Mit "_response.setHeader" wird die Variable "_response" in den Header der HTML-Datei "content-type","text/html; charset=utf-8" eingesetzt
         _response.setHeader("Access-Control-Allow-Origin", "*"); //"Access-Control-Allow-Origin" wird auch in den Header gegeben. 
         _response.write(_request.url); //mit "_response.write" wird auf die "_request.url" zugegriffen
-        console.log(_request.url);
+        var url = Url.parse(_request.url, true).query;
+        console.log(url);
+        for (var key in url) {
+            console.log(url[key]);
+            console.log(key);
+            _response.write(key + "=" + url[key] + "<br>");
+        }
         _response.end(); //"response" wird beendet
     }
 })(L06_SendData || (L06_SendData = {}));
