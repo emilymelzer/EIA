@@ -1,6 +1,7 @@
 @charset "UTF-8";
 body {
-	background-color: black;
+	background-image: url("27280wide.jpg");
+	background-position: 100%;
 }
 img {
 	width: 50px;
@@ -26,7 +27,7 @@ fieldset {
 	border: solid #adacae 5px;
 	background-color: white;
 	color:black;
-	width:65%;
+	width:55%;
 	
 	
 }
