@@ -1,8 +1,10 @@
 @charset "UTF-8";
+
 body {
 	background-image: url("27280wide.jpg");
 	background-position: 100%;
 }
+
 img {
 	width: 50px;
 	height: 100px;
@@ -10,85 +12,112 @@ img {
 	left: 730px;
 	top: 30px;
 }
+
 h2 {
-	font-size:1.4em;
+	font-size: 1.4em;
 	font-family: 'Quicksand', sans-serif;
-	color: #094f16;
+	color: #000000;
 	margin: 20px;
 }
+
 legend {
-	font-size:1.5em;
+	font-size: 1.5em;
 	font-family: 'Quicksand', sans-serif;
 	background-color: white;
 	color: #000000;
-	
 }
+
 fieldset {
 	border: solid #adacae 5px;
 	background-color: white;
-	color:black;
-	width:55%;
-	
-	
+	color: black;
+	width: 55%;
 }
-#box {
+
+#cart {
 	position: absolute;
-	left:985px;
-	top: 10px;
+    left: 940px;
+	color: black;
+	top: 100px;
 	height: 600px;
-	width:30%;
-	border: solid #094f16 10px;
-	background-color:white;
+	width: 30%;
+	border: solid #114c66 10px;
+	background-color: white;
+    font-family: 'Quicksand', sans-serif;
+	
 }
+
 p {
-	font-size:1.0em;
+	font-size: 1.0em;
 	font-family: 'Quicksand', sans-serif;
 	margin: 10px;
 }
+
 select {
-	font-size:1.2em;
+	font-size: 1.2em;
 	font-family: 'Quicksand', sans-serif;
 	background-color: white;
 	color: #000000;
 }
+
 h1 {
-	font-size:2.5em;
+	font-size: 2.5em;
 	font-family: 'Quicksand', sans-serif;
 	text-align: center;
+	color: white;
 }
+
 #firstname {
 	font-family: 'Quicksand', sans-serif;
 }
+
 #name {
 	font-family: 'Quicksand', sans-serif;
 }
+
 #street {
 	font-family: 'Quicksand', sans-serif;
 }
+
 #number {
 	font-family: 'Quicksand', sans-serif;
 }
+
 #Baumtyp {
-		font-family: 'Quicksand', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 }
+
 #Halterung {
-		font-family: 'Quicksand', sans-serif;
-		
+	font-family: 'Quicksand', sans-serif;
 }
+
+button {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.5em;
+}
+
 #Kugeln {
-		font-family: 'Quicksand', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 }
+
 #Lametta {
-		font-family: 'Quicksand', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 }
+
 #Kerzentyp {
-		font-family: 'Quicksand', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 }
+
 #Kerzenfarbe {
+	font-family: 'Quicksand', sans-serif;
+}
+#Lieferoptionen {
 		font-family: 'Quicksand', sans-serif;
 }
+
 #fieldset {
 	background-color: #fdfcff;
 	color: #2c2c2d;
-	border: solid #770c11 10px;
+	border: solid #83b3c2 10px;
+	
 }
