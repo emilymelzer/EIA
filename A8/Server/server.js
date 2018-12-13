@@ -37,9 +37,6 @@ function handleRequest(_request, _response) {
         default:
             respond(_response, "unknown command: " + command);
             break;
-        case "find":
-            Database.findAll(findCallback);
-            break;
     }
     // findCallback is an inner function so that _response is in scope
     function findCallback(json) {

@@ -1,14 +1,16 @@
 {
-	"name" : "MiniServer",
-	"version" : "1.0.0",
-	"description" : "Minimal server just bouncing the URL",
-	"author" : "Jirka",
-	"main" : "server.js",
-	"scripts" : {
-		"start" : "node A6/server.js"},
-	"engines" : {
-		"node" : "8.10.0"
+	"name": "MiniServer",
+	"version": "1.0.0",
+	"description": "Minimal server just bouncing the URL",
+	"author": "Jirka",
+	"main": "server.js",
+	"scripts": {
+		"start": "node A8/Server/server.js"
 	},
-	"dependencies" : {
+	"engines": {
+		"node": "8.10.0"
+	},
+	"dependencies": {
+		"mongodb": "^3.1.10"
 	}
 }

@@ -46,9 +46,9 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         default:
             respond(_response, "unknown command: " + command);
             break;
-        case "find":
+       /* case "find":
         Database.findAll(findCallback);
-            break;
+            break;*/
     }
 
     // findCallback is an inner function so that _response is in scope
