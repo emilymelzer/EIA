@@ -1,13 +1,55 @@
 namespace Wbk {
     window.addEventListener("DOMContentLoaded", init);
-let adress:string = "http://localhost:8100";
-let urlToSend: string = "";
-    
+    let address: string = "https://aufgabe6beispiel.herokuapp.com";
+    let url: string;
+
     function init(): void {
-        createInput(); 
-        setupAsyncForm();
+        createInput();
+        let bestellButton: HTMLElement = document.getElementById("Bestellbutton");
+        bestellButton.addEventListener("click", handleClickOnAsync);
+    }
+    function handleClickOnAsync(_event: Event): void {
+        document.getElementById("order").innerHTML = " ";
+        url = " ";
+        let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
+        for (let i: number = 0; i < inputs.length; i++) {
+            let input: HTMLInputElement = inputs[i];
+            if (input.type == "number") {
+                if (parseInt(input.value) > 0) {
+                    url += input.name + "=" + parseInt(input.value) + "&";
+                }
+            }
+
+            if (input.checked == true) {
+                url += input.value + "=" + 1 + "&";
+
+            }
         }
 
+        sendRequestWithCustomData();
+
+
+        let product: string = (<HTMLInputElement>document.querySelector(":checked")).value;
+        console.log(product);
+    }
+
+    function sendRequestWithCustomData(): void {
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open("GET", address + "?" + url, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+
+    function handleStateChange(_event: ProgressEvent): void {
+        var xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+
+            document.getElementById("order").innerHTML += xhr.response;
+
+        }
+    }
     function createInput(): void {
 
         for (let key in offers) {
@@ -50,11 +92,10 @@ let urlToSend: string = "";
             }
         }
     }
-
-
     function createCart(): void {
 
         let p: HTMLElement = document.getElementById("cart");
+        //   let articles: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let total: number = 0;
         let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         p.innerHTML = " ";
@@ -85,33 +126,5 @@ let urlToSend: string = "";
         p.innerHTML += "Gesamtpreis " + total.toFixed(2) + "Euro";
     }
 
-function setupAsyncForm(): void {
-        let button: Element = document.getElementById("check");
-        button.addEventListener("click", RequestDatas);
-    }
 
-    
-    
-    
-    
-    function RequestDatas(_e: MouseEvent): void {
-        let xml: XMLHttpRequest = new XMLHttpRequest();
-        xml.open("GET", "https://aufgabe6beispiel.herokuapp.com" + "/?" + urlToSend, true);
-        xml.addEventListener("readystatechange", handleStateChange);
-        xml.send();
-    }
-
-    function handleStateChange(_event: ProgressEvent): void {
-        var xml: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xml.readyState == XMLHttpRequest.DONE) {
-            console.log("ready: " + xml.readyState, " | type: " + xml.responseType, " | status:" + xml.status, " | text:" + xml.statusText);
-            console.log("response: " + xml.response);
-            alert("response: " +xml.response);
-            
-        }
-    }
-
-
-
-
-}
+}  

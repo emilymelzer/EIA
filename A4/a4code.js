@@ -1,11 +1,45 @@
 var Wbk;
 (function (Wbk) {
     window.addEventListener("DOMContentLoaded", init);
-    var adress = "http://localhost:8100";
-    var urlToSend = "";
+    var address = "https://aufgabe6beispiel.herokuapp.com";
+    var url;
     function init() {
         createInput();
-        setupAsyncForm();
+        var bestellButton = document.getElementById("Bestellbutton");
+        bestellButton.addEventListener("click", handleClickOnAsync);
+    }
+    function handleClickOnAsync(_event) {
+        document.getElementById("order").innerHTML = " ";
+        url = " ";
+        var inputs = document.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            var input = inputs[i];
+            if (input.type == "number") {
+                if (parseInt(input.value) > 0) {
+                    url += input.name + "=" + parseInt(input.value) + "&";
+                }
+            }
+            if (input.checked == true) {
+                url += input.value + "=" + 1 + "&";
+            }
+        }
+        sendRequestWithCustomData();
+        var product = document.querySelector(":checked").value;
+        console.log(product);
+    }
+    function sendRequestWithCustomData() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", address + "?" + url, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+    function handleStateChange(_event) {
+        var xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+            document.getElementById("order").innerHTML += xhr.response;
+        }
     }
     function createInput() {
         for (var key in Wbk.offers) {
@@ -42,6 +76,7 @@ var Wbk;
     }
     function createCart() {
         var p = document.getElementById("cart");
+        //   let articles: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         var total = 0;
         var inputs = document.getElementsByTagName("input");
         p.innerHTML = " ";
@@ -65,24 +100,6 @@ var Wbk;
             }
         }
         p.innerHTML += "Gesamtpreis " + total.toFixed(2) + "Euro";
-    }
-    function setupAsyncForm() {
-        var button = document.getElementById("check");
-        button.addEventListener("click", RequestDatas);
-    }
-    function RequestDatas(_e) {
-        var xml = new XMLHttpRequest();
-        xml.open("GET", "https://aufgabe6beispiel.herokuapp.com" + "/?" + urlToSend, true);
-        xml.addEventListener("readystatechange", handleStateChange);
-        xml.send();
-    }
-    function handleStateChange(_event) {
-        var xml = _event.target;
-        if (xml.readyState == XMLHttpRequest.DONE) {
-            console.log("ready: " + xml.readyState, " | type: " + xml.responseType, " | status:" + xml.status, " | text:" + xml.statusText);
-            console.log("response: " + xml.response);
-            alert("response: " + xml.response);
-        }
     }
 })(Wbk || (Wbk = {}));
 //# sourceMappingURL=a4code.js.map

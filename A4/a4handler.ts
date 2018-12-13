@@ -52,7 +52,7 @@ namespace Wbk {
         ],
 
         "Kerzentyp": [
-            { name: "Große, weiße Kerzeb", price: 3.95},
+            { name: "Große, weiße Kerzen", price: 3.95},
             { name: "Dünne Kerzen", price: 2.50 },
             { name: "Silberarbene Kerzen", price: 4.95 },
             { name: "Goldfarbene Kerzen", price: 4.95},

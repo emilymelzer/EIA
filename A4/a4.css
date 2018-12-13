@@ -3,6 +3,7 @@
 body {
 	background-image: url("27280wide.jpg");
 	background-position: 100%;
+	font-family: 'Quicksand', sans-serif;
 }
 
 img {
@@ -52,12 +53,17 @@ p {
 	font-family: 'Quicksand', sans-serif;
 	margin: 10px;
 }
-
-select {
-	font-size: 1.2em;
-	font-family: 'Quicksand', sans-serif;
+#order {
 	background-color: white;
-	color: #000000;
+	position: absolute;
+	left: 940px;
+	top: 750px;
+	border: solid #114c66 10px;
+	color: black;
+	
+    font-family:'Quicksand', sans-serif;
+    font-size: 20px;
+    width: 430px;
 }
 
 h1 {
@@ -119,5 +125,6 @@ button {
 	background-color: #fdfcff;
 	color: #2c2c2d;
 	border: solid #83b3c2 10px;
+	font-family: 'Quicksand', sans-serif;
 	
 }
