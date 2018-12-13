@@ -6,8 +6,16 @@ var DatabaseClient;
         console.log("Init");
         var insertButton = document.getElementById("insert");
         var refreshButton = document.getElementById("refresh");
+        var findButton = document.getElementById("find");
+        findButton.addEventListener("click", find);
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+    }
+    function find(_event) {
+        var input = document.getElementById("Matrikelnummer");
+        console.log(input.value);
+        var url = "command=find" + "&" + "matrikel" + "=" + input.value;
+        sendRequest(url, handleFindResponse);
     }
     function insert(_event) {
         var inputs = document.getElementsByTagName("input");

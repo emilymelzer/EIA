@@ -6,10 +6,21 @@ namespace DatabaseClient {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
+        let findButton: HTMLButtonElement= <HTMLButtonElement>document.getElementById("find");
+        findButton.addEventListener("click", find);
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
     }
 
+    function find(_event:Event):void {
+        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("Matrikelnummer");
+        console.log(input.value);
+        let url: string = "command=find" + "&" + "matrikel" + "=" + input.value;
+        sendRequest(url, handleFindResponse); 
+        }
+    
+        
+        
     function insert(_event: Event): void {
         let inputs: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=insert";

@@ -43,12 +43,13 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "refresh":
             Database.findAll(findCallback);
             break;
+        case "find":
+          let matrikel:number= parseInt(query["matrikel"]);
+            Database.find(matrikel, findCallback);
+            break;
         default:
             respond(_response, "unknown command: " + command);
             break;
-       /* case "find":
-        Database.findAll(findCallback);
-            break;*/
     }
 
     // findCallback is an inner function so that _response is in scope
