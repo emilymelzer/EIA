@@ -12,7 +12,7 @@ var DatabaseClient;
         refreshButton.addEventListener("click", refresh);
     }
     function find(_event) {
-        var input = document.getElementById("Matrikelnummer");
+        var input = document.getElementById("matrikelnummer");
         console.log(input.value);
         var url = "command=find" + "&" + "matrikel" + "=" + input.value;
         sendRequest(url, handleFindResponse);
