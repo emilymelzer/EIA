@@ -5,8 +5,30 @@
 
 head {
 	display: none;
+		font-family: 'Quicksand', sans-serif;
+	
 }
 
 fieldset {
 	width: 300px;
+	font-family: 'Quicksand', sans-serif;
+    border: solid #feffff 15px;
+    background: #e9bec0;
+    color: black;
+    font-size: 1.5em;
+    margin: 10px;
+	
+}
+
+body {
+	background-color: #3f3f3f;
+	font-family: 'Quicksand', sans-serif;
+}
+
+
+legend {
+		font-family: 'Quicksand', sans-serif;
+}
+button {
+	top: 800px;
 }

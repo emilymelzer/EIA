@@ -45,7 +45,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             break;
         case "find":
           let studynumber:Matrikelnummer= { matrikel : parseInt(query["matrikel"])};
-            Database.find(studynumber, findCallback);
+            Database.findM(studynumber, findCallback);
             break;
         default:
             respond(_response, "unknown command: " + command);

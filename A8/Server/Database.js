@@ -53,9 +53,10 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
-function find(matrikel, _callback) {
+function findM(matrikel, _callback) {
+    console.log(matrikel);
     // cursor points to the retreived set of documents in memory
-    var cursor = students.find();
+    var cursor = students.find(matrikel);
     // try to convert to array, then activate callback "prepareAnswer"
     cursor.toArray(prepareAnswer);
     // toArray-handler receives two standard parameters, an error object and the array
@@ -68,5 +69,5 @@ function find(matrikel, _callback) {
             _callback(JSON.stringify(studentArray));
     }
 }
-exports.find = find;
+exports.findM = findM;
 //# sourceMappingURL=database.js.map
