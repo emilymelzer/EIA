@@ -8,7 +8,7 @@ interface StudentData {
     matrikel: number;
 }
 
-interface Matrikelnumber {
+interface Matrikelnummer {
     matrikel: number;
     }
     

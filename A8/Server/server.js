@@ -35,8 +35,8 @@ function handleRequest(_request, _response) {
             Database.findAll(findCallback);
             break;
         case "find":
-            var matrikel = parseInt(query["matrikel"]);
-            Database.find(matrikel, findCallback);
+            var studynumber = { matrikel: parseInt(query["matrikel"]) };
+            Database.find(studynumber, findCallback);
             break;
         default:
             respond(_response, "unknown command: " + command);

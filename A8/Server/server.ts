@@ -44,8 +44,8 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             Database.findAll(findCallback);
             break;
         case "find":
-          let matrikel:Matrikelnumber= { matrikel : parseInt(query["matrikel"])};
-            Database.find(matrikel, findCallback);
+          let studynumber:Matrikelnummer= { matrikel : parseInt(query["matrikel"])};
+            Database.find(studynumber, findCallback);
             break;
         default:
             respond(_response, "unknown command: " + command);

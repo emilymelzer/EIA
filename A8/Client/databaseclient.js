@@ -6,10 +6,10 @@ var DatabaseClient;
         console.log("Init");
         var insertButton = document.getElementById("insert");
         var refreshButton = document.getElementById("refresh");
-        var findButton = document.getElementById("find");
-        findButton.addEventListener("click", find);
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        var findButton = document.getElementById("find");
+        findButton.addEventListener("click", find);
     }
     function find(_event) {
         var input = document.getElementById("matrikelnummer");
