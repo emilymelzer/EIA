@@ -116,7 +116,7 @@ namespace rodelhang {
 
     }
     function generateTrees(): void {
-        for (let i: number = 0; i < 4; i++) {
+        for (let i: number = 0; i < 7; i++) {
             let x: number = Math.random() * crc2.canvas.width;
             let y: number = Math.random() * crc2.canvas.height;
             crc2.beginPath();

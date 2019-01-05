@@ -102,7 +102,7 @@ var rodelhang;
         crc2.fill();
     }
     function generateTrees() {
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 7; i++) {
             var x = Math.random() * crc2.canvas.width;
             var y = Math.random() * crc2.canvas.height;
             crc2.beginPath();
