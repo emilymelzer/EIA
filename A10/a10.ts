@@ -4,7 +4,7 @@ namespace rodelhang {
 
     let snowflake: Snow[] = [];
     let childrenUp: ChildPull[] = [];
-    let childrenDown: ChildDrive[]= [];
+    let childrenDown: ChildDown[]= [];
     let fps: number = 25;
     let imgData: ImageData;
 
@@ -20,11 +20,12 @@ namespace rodelhang {
         drawCloud2();
         drawCloud3();
         
+        
         imgData = crc2.getImageData(0, 0, 1024, 1100);
         generateSnow();
         generateChildrenUP();
         generateChildrenDOWN();
-       // generateSnow();
+       
         update();
         
 
@@ -38,8 +39,18 @@ namespace rodelhang {
             let snowflakes: Snow = snowflake[i];
             snowflakes.move();
             snowflakes.draw();
+       }         
+            for(let i: number=0; i < childrenUp.length; i++) {
+            let childUp: ChildPull = childrenUp[i];
+            childUp.move();
+            childUp.draw();
 
 }
+            for(let i: number=0; i < childrenDown.length; i++) {
+            let childdown: ChildDown = childrenDown[i];
+            childdown.move();
+            childdown.draw();
+        }
         }
 
         function drawSun(): void {
@@ -173,17 +184,18 @@ namespace rodelhang {
                 childrenUp.push(children1);
             }
         }
+        
         function generateChildrenDOWN(): void {
 
             for (let i: number = 0; i < 6; i++) {
-                let children: ChildDrive = new ChildDrive();
+                let children: ChildDown = new ChildDown();
                 children.xPos = Math.random() * 200 + 700;
                 children.yPos = Math.random() * 100 + 600;
-                children.color = "#F04238";
+                children.color = "#F0A232";
                 children.draw();
 
-                childrenUp.push(children);
+                childrenDown.push(children);
             }
         }
 }
-    
+ 

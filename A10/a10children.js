@@ -5,7 +5,7 @@ var rodelhang;
         }
         ChildPull.prototype.draw = function () {
             rodelhang.crc2.beginPath();
-            rodelhang.crc2.arc(this.xPos - 45, this.yPos - 45, 10, 0, 2 * Math.PI, false);
+            rodelhang.crc2.arc(this.xPos - 70, this.yPos - 70, 10, 0, 2 * Math.PI, false);
             rodelhang.crc2.fillStyle = "#FFD8BE";
             rodelhang.crc2.fill();
             rodelhang.crc2.lineWidth = .2;

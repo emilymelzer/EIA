@@ -19,7 +19,6 @@ var rodelhang;
         generateSnow();
         generateChildrenUP();
         generateChildrenDOWN();
-        // generateSnow();
         update();
     }
     function update() {
@@ -29,6 +28,16 @@ var rodelhang;
             var snowflakes = snowflake[i];
             snowflakes.move();
             snowflakes.draw();
+        }
+        for (var i = 0; i < childrenUp.length; i++) {
+            var childUp = childrenUp[i];
+            childUp.move();
+            childUp.draw();
+        }
+        for (var i = 0; i < childrenDown.length; i++) {
+            var childdown = childrenDown[i];
+            childdown.move();
+            childdown.draw();
         }
     }
     function drawSun() {
@@ -150,12 +159,12 @@ var rodelhang;
     }
     function generateChildrenDOWN() {
         for (var i = 0; i < 6; i++) {
-            var children = new rodelhang.ChildDrive();
+            var children = new rodelhang.ChildDown();
             children.xPos = Math.random() * 200 + 700;
             children.yPos = Math.random() * 100 + 600;
-            children.color = "#F04238";
+            children.color = "#F0A232";
             children.draw();
-            childrenUp.push(children);
+            childrenDown.push(children);
         }
     }
 })(rodelhang || (rodelhang = {}));

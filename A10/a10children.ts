@@ -11,7 +11,7 @@ namespace rodelhang {
         draw(): void {
 
             crc2.beginPath();
-            crc2.arc(this.xPos - 45, this.yPos - 45, 10, 0, 2 * Math.PI, false);
+            crc2.arc(this.xPos - 70, this.yPos - 70, 10, 0, 2 * Math.PI, false);
             crc2.fillStyle = "#FFD8BE";
             crc2.fill();
             crc2.lineWidth = .2;
