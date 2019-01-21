@@ -14,7 +14,7 @@ var rodelhang;
         };
         Snow.prototype.move = function () {
             this.yDir = 4;
-            this.xDir = Math.random() * 2 - 2;
+            this.xDir = Math.random() * 2 - 1;
             this.xPos += this.xDir;
             this.yPos += this.yDir;
             if (this.yPos > 1100) {

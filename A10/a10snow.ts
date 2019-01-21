@@ -19,7 +19,7 @@ namespace rodelhang {
             move(): void {
 
             this.yDir = 4;
-            this.xDir = Math.random() * 2 - 2;
+            this.xDir = Math.random() * 2 - 1;
 
             this.xPos += this.xDir;
             this.yPos += this.yDir;
