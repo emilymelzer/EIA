@@ -5,7 +5,7 @@ var rodelhang;
         }
         ChildPull.prototype.draw = function () {
             rodelhang.crc2.beginPath();
-            rodelhang.crc2.arc(this.xPos - 70, this.yPos - 70, 10, 0, 2 * Math.PI, false);
+            rodelhang.crc2.arc(this.xPos - 50, this.yPos - 50, 10, 0, 2 * Math.PI, false);
             rodelhang.crc2.fillStyle = "#FFD8BE";
             rodelhang.crc2.fill();
             rodelhang.crc2.lineWidth = .2;
@@ -30,6 +30,7 @@ var rodelhang;
             rodelhang.crc2.lineWidth = 4;
             rodelhang.crc2.strokeStyle = "#683737";
             rodelhang.crc2.stroke();
+            //Schlitten
             rodelhang.crc2.beginPath();
             rodelhang.crc2.moveTo(this.xPos + 10, this.yPos);
             rodelhang.crc2.lineTo(this.xPos + 10, this.yPos - 15);

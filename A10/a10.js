@@ -52,13 +52,14 @@ var rodelhang;
         rodelhang.crc2.fill();
     }
     function drawSky() {
+        rodelhang.crc2.moveTo(0, 100);
         rodelhang.crc2.beginPath();
-        rodelhang.crc2.lineTo(0, 800);
-        rodelhang.crc2.lineTo(1600, 0);
+        rodelhang.crc2.lineTo(1200, 800);
+        rodelhang.crc2.lineTo(1030, 0);
         rodelhang.crc2.lineTo(0, 0);
-        rodelhang.crc2.lineTo(0, 550);
+        rodelhang.crc2.lineTo(0, 370);
         rodelhang.crc2.closePath();
-        var grd = rodelhang.crc2.createLinearGradient(0, 0, 900, 1110);
+        var grd = rodelhang.crc2.createLinearGradient(0, 0, 700, 1110);
         grd.addColorStop(0, "#b2e2e9");
         rodelhang.crc2.fillStyle = grd;
         rodelhang.crc2.fill();
@@ -160,8 +161,8 @@ var rodelhang;
     function generateChildrenDOWN() {
         for (var i = 0; i < 6; i++) {
             var children = new rodelhang.ChildDown();
-            children.xPos = Math.random() * 200 + 700;
-            children.yPos = Math.random() * 100 + 600;
+            children.xPos = Math.random() * 200 + 100;
+            children.yPos = Math.random() * 100 + 500;
             children.color = "#F0A232";
             children.draw();
             childrenDown.push(children);
