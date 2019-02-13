@@ -2,112 +2,191 @@ var Rodelhang;
 (function (Rodelhang) {
     window.addEventListener("load", init);
     var objects = [];
+    var children = [];
     var imagedata;
     var fps = 25;
     var i = 0;
+    var xMouse;
+    var yMouse;
+    var snowball;
+    function listeners() {
+        document.getElementById("Anleitung").addEventListener("click", anzeigeCanvas);
+        document.getElementsByTagName("canvas")[0].addEventListener("click", mouseEvent);
+    }
     function init() {
         var canvas = document.getElementsByTagName("canvas")[0];
         Rodelhang.crc2 = canvas.getContext("2d");
+        listeners();
         drawSky();
         drawHill();
         drawSun();
         drawCloud();
         drawCloud2();
         drawCloud3();
-        generateTrees();
-        generateSnow();
         generateChild();
+        generateSlowChildren();
+        generateSnow();
+        drawScore();
+        // generateScore();
         imagedata = Rodelhang.crc2.getImageData(0, 0, canvas.width, canvas.height);
         update();
-        function update() {
-            Rodelhang.crc2.putImageData(imagedata, 0, 0);
-            window.setTimeout(update, 1000 / fps);
-            for (var i_1 = 0; i_1 < objects.length; i_1++) {
-                var object = objects[i_1];
-                object.draw();
-                object.move();
+    }
+    function anzeigeCanvas() {
+        document.getElementsByTagName("canvas")[0].classList.remove("invisible");
+        document.getElementsByTagName("div")[0].classList.add("invisible");
+    }
+    function update() {
+        Rodelhang.crc2.clearRect(0, 0, 1400, 900);
+        Rodelhang.crc2.putImageData(imagedata, 0, 0);
+        window.setTimeout(update, 1000 / fps);
+        for (var i_1 = 0; i_1 < objects.length; i_1++) {
+            var object = objects[i_1];
+            object.draw();
+            object.move();
+        }
+        if (snowball) {
+            if (snowball.xP >= xMouse - 20 && snowball.xP <= xMouse + 20) {
+                if (snowball.yP >= yMouse - 20 && snowball.yP <= yMouse + 20) {
+                    console.log("ball angekommen");
+                    checkIfHit();
+                }
             }
         }
-        function generateTrees() {
-            for (var i_2 = 0; i_2 < 6; i_2++) {
-                var tree = new Rodelhang.Tree();
-                objects.push(tree);
+    }
+    //Schneeball
+    function generateSnowball(_xMouse, _yMouse) {
+        console.log(snowball);
+        snowball = new Rodelhang.Snowball(_xMouse, _yMouse);
+        //            console.log(snowball);
+        console.log("neuer schneeball");
+        objects.push(snowball);
+    }
+    function mouseEvent(_event) {
+        if (!snowball) {
+            xMouse = _event.clientX;
+            yMouse = _event.clientY;
+            generateSnowball(xMouse, yMouse);
+        }
+    }
+    function checkIfHit() {
+        for (var i_2 = 0; i_2 < children.length; i_2++) {
+            if (xMouse >= children[i_2].xP - 40 && xMouse <= children[i_2].xP + 0) {
+                if (yMouse >= children[i_2].yP - 10 && yMouse <= children[i_2].yP + 43) {
+                    console.log("kind getroffen");
+                }
             }
         }
-        function generateSnow() {
-            for (var i_3 = 0; i_3 < 70; i_3++) {
-                var snowflake = new Rodelhang.Snow();
-                objects.push(snowflake);
+        for (var i_3 = 0; i_3 < objects.length; i_3++) {
+            if (objects[i_3].typ == "snowball") {
+                objects.splice(i_3, 1);
+                console.log("ball löschen");
+                console.log(objects[i_3]);
             }
         }
-        function generateChild() {
-            for (var i_4 = 0; i_4 < 5; i_4++) {
-                var child = new Rodelhang.Children();
-                objects.push(child);
-            }
+        snowball = null;
+    }
+    //Schnee
+    function generateSnow() {
+        for (var i_4 = 0; i_4 < 70; i_4++) {
+            var snowflake = new Rodelhang.Snow();
+            objects.push(snowflake);
         }
-        function drawCloud() {
-            Rodelhang.crc2.beginPath();
-            Rodelhang.crc2.arc(70, 210, 45, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(140, 210, 60, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(200, 210, 45, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(240, 210, 30, 0, 2 * Math.PI);
-            Rodelhang.crc2.fillStyle = "#FFFFFF";
-            Rodelhang.crc2.fill();
+    }
+    function generateChild() {
+        for (var i_5 = 0; i_5 < 5; i_5++) {
+            var child = new Rodelhang.Children();
+            objects.push(child);
+            children.push(child);
         }
-        function drawCloud2() {
-            Rodelhang.crc2.beginPath();
-            Rodelhang.crc2.arc(650, 100, 30, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(810, 100, 60, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(870, 100, 40, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(750, 100, 70, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(700, 100, 50, 0, 2 * Math.PI);
-            Rodelhang.crc2.fillStyle = "#FFFFFF";
-            Rodelhang.crc2.fill();
+    }
+    function generateSlowChildren() {
+        for (var i_6 = 0; i_6 < 5; i_6++) {
+            var child = new Rodelhang.slowChildren();
+            objects.push(child);
+            children.push(child);
         }
-        function drawCloud3() {
-            Rodelhang.crc2.beginPath();
-            Rodelhang.crc2.arc(595, 220, 15, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(620, 220, 25, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(650, 220, 30, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(680, 220, 25, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(705, 220, 15, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(720, 220, 10, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(730, 220, 8, 0, 2 * Math.PI);
-            Rodelhang.crc2.arc(740, 220, 6, 0, 2 * Math.PI);
-            Rodelhang.crc2.fillStyle = "#FFFFFF";
-            Rodelhang.crc2.fill();
-        }
-        function drawSky() {
-            Rodelhang.crc2.moveTo(0, 100);
-            Rodelhang.crc2.beginPath();
-            Rodelhang.crc2.lineTo(1200, 800);
-            Rodelhang.crc2.lineTo(1030, 0);
-            Rodelhang.crc2.lineTo(0, 0);
-            Rodelhang.crc2.lineTo(0, 370);
-            Rodelhang.crc2.closePath();
-            var grd = Rodelhang.crc2.createLinearGradient(0, 0, 700, 1110);
-            grd.addColorStop(0, "#b2e2e9");
-            Rodelhang.crc2.fillStyle = grd;
-            Rodelhang.crc2.fill();
-        }
-        function drawHill() {
-            Rodelhang.crc2.beginPath();
-            Rodelhang.crc2.moveTo(0, 300);
-            Rodelhang.crc2.lineTo(700, 700);
-            Rodelhang.crc2.lineTo(700, 700);
-            Rodelhang.crc2.lineTo(0, 700);
-            Rodelhang.crc2.lineTo(0, 700);
-            Rodelhang.crc2.closePath();
-            Rodelhang.crc2.fillStyle = "#FFFFFF";
-            Rodelhang.crc2.fill();
-        }
-        function drawSun() {
-            Rodelhang.crc2.beginPath();
-            Rodelhang.crc2.arc(150, 150, 100, 0, 2 * Math.PI);
-            Rodelhang.crc2.fillStyle = "#fff91d";
-            Rodelhang.crc2.fill();
-        }
+    }
+    function drawCloud() {
+        Rodelhang.crc2.beginPath();
+        Rodelhang.crc2.arc(70, 170, 45, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(140, 170, 60, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(200, 170, 45, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(240, 170, 30, 0, 2 * Math.PI);
+        Rodelhang.crc2.fillStyle = "#FFFFFF";
+        Rodelhang.crc2.fill();
+    }
+    function drawCloud2() {
+        Rodelhang.crc2.beginPath();
+        Rodelhang.crc2.arc(650, 100, 30, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(810, 100, 60, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(870, 100, 40, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(750, 100, 70, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(700, 100, 50, 0, 2 * Math.PI);
+        Rodelhang.crc2.fillStyle = "#FFFFFF";
+        Rodelhang.crc2.fill();
+    }
+    function drawCloud3() {
+        Rodelhang.crc2.beginPath();
+        Rodelhang.crc2.arc(595, 220, 15, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(620, 220, 25, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(650, 220, 30, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(680, 220, 25, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(705, 220, 15, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(720, 220, 10, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(730, 220, 8, 0, 2 * Math.PI);
+        Rodelhang.crc2.arc(740, 220, 6, 0, 2 * Math.PI);
+        Rodelhang.crc2.fillStyle = "#FFFFFF";
+        Rodelhang.crc2.fill();
+    }
+    function drawSky() {
+        Rodelhang.crc2.moveTo(0, 100);
+        Rodelhang.crc2.beginPath();
+        Rodelhang.crc2.lineTo(1400, 800);
+        Rodelhang.crc2.lineTo(1400, 0);
+        Rodelhang.crc2.lineTo(0, 0);
+        Rodelhang.crc2.lineTo(0, 370);
+        Rodelhang.crc2.closePath();
+        var grd = Rodelhang.crc2.createLinearGradient(0, 0, 700, 1110);
+        grd.addColorStop(0, "#7eb6e9");
+        Rodelhang.crc2.fillStyle = grd;
+        Rodelhang.crc2.fill();
+    }
+    function drawHill() {
+        Rodelhang.crc2.beginPath();
+        Rodelhang.crc2.moveTo(0, 300);
+        Rodelhang.crc2.lineTo(1400, 700);
+        Rodelhang.crc2.lineTo(1400, 800);
+        Rodelhang.crc2.lineTo(0, 800);
+        Rodelhang.crc2.lineTo(0, 700);
+        Rodelhang.crc2.closePath();
+        Rodelhang.crc2.fillStyle = "#FFFFFF";
+        Rodelhang.crc2.fill();
+    }
+    function drawSun() {
+        Rodelhang.crc2.beginPath();
+        Rodelhang.crc2.arc(150, 100, 70, 0, 2 * Math.PI);
+        Rodelhang.crc2.fillStyle = "#fff91d";
+        Rodelhang.crc2.fill();
+    }
+    /*  function generateScore(): void {
+          let score: Score = new Score();
+          objects.push(score);
+  }*/
+    function drawScore() {
+        Rodelhang.crc2.beginPath();
+        Rodelhang.crc2.moveTo(50, 670);
+        Rodelhang.crc2.lineTo(300, 670);
+        Rodelhang.crc2.lineTo(300, 770);
+        Rodelhang.crc2.lineTo(50, 770);
+        Rodelhang.crc2.closePath();
+        Rodelhang.crc2.fillStyle = "#ffffff";
+        Rodelhang.crc2.fill();
+        Rodelhang.crc2.lineWidth = 3.5;
+        Rodelhang.crc2.strokeStyle = "#7eb6e9";
+        Rodelhang.crc2.stroke();
+        Rodelhang.crc2.font = "30px Quicksand";
+        Rodelhang.crc2.fillStyle = "#000000";
+        Rodelhang.crc2.fillText("Score", 135, 700);
     }
 })(Rodelhang || (Rodelhang = {}));
 //# sourceMappingURL=Main.js.map

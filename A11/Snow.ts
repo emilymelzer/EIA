@@ -6,7 +6,7 @@ namespace Rodelhang {
 
         constructor() {
             super();
-            this.xP = Math.random() * 1100;
+            this.xP = Math.random() * 1400;
             this.yP = Math.random() * 700;
         }
         
@@ -17,7 +17,7 @@ namespace Rodelhang {
             this.xP += this.xD;
             this.yP += this.yD;
 
-            if (this.yP > 1100) {
+            if (this.yP > 800) {
                 this.yP = 1;
             }
             this.draw();

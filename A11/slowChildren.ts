@@ -1,6 +1,6 @@
 namespace Rodelhang {
 
-    export class Children extends DrawObject {
+    export class slowChildren extends Children {
         xD: number;
         yD: number;
         colorBody: string;
@@ -8,9 +8,9 @@ namespace Rodelhang {
 
         constructor() {
             super();
-            this.xP = Math.random() * 300 + 150;
-            this.yP = Math.random() * 100 + 360;
-            this.colorBody = "hsl(" + Math.random() * 360 + ", 90%, 80%)";
+            this.xP = Math.random() * 250 + 250;
+            this.yP = Math.random() * 250 + 360;
+            this.colorBody = "hsl(" + Math.random() * 360 + ", 50%, 80%)";
         }
 
         move(): void {
@@ -23,8 +23,8 @@ namespace Rodelhang {
         }
 
         moveDown(): void {
-            this.xD = 12;
-            this.yD = 4;
+            this.xD = 5;
+            this.yD = 1.5;
 
             this.xP += this.xD;
             this.yP += this.yD;
@@ -36,8 +36,8 @@ namespace Rodelhang {
 
         moveUp(): void {
 
-            this.xD = Math.random() * (-12);
-            this.yD = Math.random() * (-4);
+            this.xD = Math.random() * (-5);
+            this.yD = Math.random() * (-1.5);
 
             this.xP += this.xD;
             this.yP += this.yD;

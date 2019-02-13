@@ -5,33 +5,33 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Rodelhang;
 (function (Rodelhang) {
-    var Children = (function (_super) {
-        __extends(Children, _super);
-        function Children() {
+    var slowChildren = (function (_super) {
+        __extends(slowChildren, _super);
+        function slowChildren() {
             _super.call(this);
-            this.xP = Math.random() * 300 + 150;
-            this.yP = Math.random() * 100 + 360;
-            this.colorBody = "hsl(" + Math.random() * 360 + ", 90%, 80%)";
+            this.xP = Math.random() * 250 + 250;
+            this.yP = Math.random() * 250 + 360;
+            this.colorBody = "hsl(" + Math.random() * 360 + ", 50%, 80%)";
         }
-        Children.prototype.move = function () {
+        slowChildren.prototype.move = function () {
             if (this.md == true)
                 this.moveDown();
             else {
                 this.moveUp();
             }
         };
-        Children.prototype.moveDown = function () {
-            this.xD = 12;
-            this.yD = 4;
+        slowChildren.prototype.moveDown = function () {
+            this.xD = 5;
+            this.yD = 1.5;
             this.xP += this.xD;
             this.yP += this.yD;
             if (this.xP > 1400) {
                 this.md = false;
             }
         };
-        Children.prototype.moveUp = function () {
-            this.xD = Math.random() * (-12);
-            this.yD = Math.random() * (-4);
+        slowChildren.prototype.moveUp = function () {
+            this.xD = Math.random() * (-5);
+            this.yD = Math.random() * (-1.5);
             this.xP += this.xD;
             this.yP += this.yD;
             if (this.xP < 50) {
@@ -39,7 +39,7 @@ var Rodelhang;
             }
             this.draw();
         };
-        Children.prototype.draw = function () {
+        slowChildren.prototype.draw = function () {
             //Kinder
             Rodelhang.crc2.beginPath();
             Rodelhang.crc2.fillStyle = "#FFD8BE";
@@ -61,8 +61,8 @@ var Rodelhang;
             Rodelhang.crc2.stroke();
             Rodelhang.crc2.fill();
         };
-        return Children;
-    }(Rodelhang.DrawObject));
-    Rodelhang.Children = Children;
+        return slowChildren;
+    }(Rodelhang.Children));
+    Rodelhang.slowChildren = slowChildren;
 })(Rodelhang || (Rodelhang = {}));
-//# sourceMappingURL=Children.js.map
+//# sourceMappingURL=slowChildren.js.map

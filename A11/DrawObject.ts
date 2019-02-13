@@ -8,6 +8,9 @@ namespace Rodelhang {
         colorBody: string;
         color: string;
         md: boolean;
+        
+        typ: string;
+      
 
         draw(): void {
 
