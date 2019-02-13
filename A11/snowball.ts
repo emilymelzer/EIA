@@ -16,8 +16,8 @@ namespace Rodelhang {
         }
 
         draw(): void {
-            if (this.scale <= 10) {
-                this.scale = 10;
+            if (this.scale <= 5) {
+                this.scale = 5;
             }
             crc2.beginPath();
             crc2.arc(this.xP, this.yP, this.scale, 0, 3 * Math.PI);

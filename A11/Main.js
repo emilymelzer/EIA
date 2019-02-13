@@ -70,9 +70,23 @@ var Rodelhang;
     }
     function checkIfHit() {
         for (var i_2 = 0; i_2 < children.length; i_2++) {
-            if (xMouse >= children[i_2].xP - 40 && xMouse <= children[i_2].xP + 0) {
-                if (yMouse >= children[i_2].yP - 10 && yMouse <= children[i_2].yP + 43) {
-                    console.log("kind getroffen");
+            if (xMouse >= children[i_2].xP - 60 && xMouse <= children[i_2].xP + 20) {
+                if (yMouse >= children[i_2].yP - 25 && yMouse <= children[i_2].yP + 60) {
+                    console.log("kind getroffen", children[i_2]);
+                    children.splice(i_2, 1);
+                    for (var a = 0; a < objects.length; a++) {
+                        if (objects[a].typ == "children" || objects[a].typ == "slowChildren") {
+                            if (xMouse >= objects[a].xP - 60 && xMouse <= objects[a].xP + 20) {
+                                if (yMouse >= objects[a].yP - 25 && yMouse <= objects[a].yP + 60) {
+                                    console.log("object getroffen");
+                                    objects.splice(a, 1);
+                                    var child = new Rodelhang.Children();
+                                    objects.push(child);
+                                    children.push(child);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -171,7 +185,7 @@ var Rodelhang;
     /*  function generateScore(): void {
           let score: Score = new Score();
           objects.push(score);
-  }*/
+    }*/
     function drawScore() {
         Rodelhang.crc2.beginPath();
         Rodelhang.crc2.moveTo(50, 670);

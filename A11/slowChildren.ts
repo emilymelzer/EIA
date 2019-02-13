@@ -5,6 +5,7 @@ namespace Rodelhang {
         yD: number;
         colorBody: string;
         md: boolean;
+        typ= "slowChildren";
 
         constructor() {
             super();

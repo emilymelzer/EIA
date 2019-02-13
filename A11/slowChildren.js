@@ -9,6 +9,7 @@ var Rodelhang;
         __extends(slowChildren, _super);
         function slowChildren() {
             _super.call(this);
+            this.typ = "slowChildren";
             this.xP = Math.random() * 250 + 250;
             this.yP = Math.random() * 250 + 360;
             this.colorBody = "hsl(" + Math.random() * 360 + ", 50%, 80%)";

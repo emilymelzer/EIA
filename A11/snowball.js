@@ -18,8 +18,8 @@ var Rodelhang;
             this.yD = this.target[1] - this.yP;
         }
         Snowball.prototype.draw = function () {
-            if (this.scale <= 10) {
-                this.scale = 10;
+            if (this.scale <= 5) {
+                this.scale = 5;
             }
             Rodelhang.crc2.beginPath();
             Rodelhang.crc2.arc(this.xP, this.yP, this.scale, 0, 3 * Math.PI);

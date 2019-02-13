@@ -5,6 +5,7 @@ namespace Rodelhang {
         yD: number;
         colorBody: string;
         md: boolean;
+        typ= "children";
 
         constructor() {
             super();
@@ -23,8 +24,8 @@ namespace Rodelhang {
         }
 
         moveDown(): void {
-            this.xD = 12;
-            this.yD = 4;
+            this.xD = 10;
+            this.yD = 3;
 
             this.xP += this.xD;
             this.yP += this.yD;
@@ -36,8 +37,8 @@ namespace Rodelhang {
 
         moveUp(): void {
 
-            this.xD = Math.random() * (-12);
-            this.yD = Math.random() * (-4);
+            this.xD = Math.random() * (-10);
+            this.yD = Math.random() * (-3);
 
             this.xP += this.xD;
             this.yP += this.yD;

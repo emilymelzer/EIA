@@ -97,12 +97,27 @@ namespace Rodelhang {
 
     function checkIfHit(): void {
         for (let i: number = 0; i < children.length; i++) {
-            if (xMouse >= children[i].xP - 40 && xMouse <= children[i].xP + 0) {
-                if (yMouse >= children[i].yP - 10 && yMouse <= children[i].yP + 43) {
-                    console.log("kind getroffen");
+            if (xMouse >= children[i].xP - 60 && xMouse <= children[i].xP + 20) {
+                if (yMouse >= children[i].yP - 25 && yMouse <= children[i].yP + 60) {
+                    console.log("kind getroffen", children[i]);
+                    children.splice(i, 1);
+                    for (let a: number = 0; a < objects.length; a++) {
+                        if (objects[a].typ == "children" || objects[a].typ == "slowChildren") {
+                            if (xMouse >= objects[a].xP - 60 && xMouse <= objects[a].xP + 20) {
+                                if (yMouse >= objects[a].yP - 25 && yMouse <= objects[a].yP + 60) {
+                                    console.log("object getroffen");
+                                    objects.splice(a, 1);
+                                    let child = new Children();
+                                    objects.push(child);
+                                    children.push(child);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
+
         for (let i: number = 0; i < objects.length; i++) {
             if (objects[i].typ == "snowball") {
                 objects.splice(i, 1);
@@ -112,6 +127,7 @@ namespace Rodelhang {
         }
         snowball = null;
     }
+
 
     //Schnee
     function generateSnow(): void {
@@ -217,7 +233,7 @@ namespace Rodelhang {
     /*  function generateScore(): void {
           let score: Score = new Score();
           objects.push(score);
-  }*/
+    }*/
 
     function drawScore(): void {
         crc2.beginPath();
@@ -237,5 +253,4 @@ namespace Rodelhang {
         crc2.fillText("Score", 135, 700);
 
     }
-
 }

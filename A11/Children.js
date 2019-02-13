@@ -9,6 +9,7 @@ var Rodelhang;
         __extends(Children, _super);
         function Children() {
             _super.call(this);
+            this.typ = "children";
             this.xP = Math.random() * 300 + 150;
             this.yP = Math.random() * 100 + 360;
             this.colorBody = "hsl(" + Math.random() * 360 + ", 90%, 80%)";
@@ -21,8 +22,8 @@ var Rodelhang;
             }
         };
         Children.prototype.moveDown = function () {
-            this.xD = 12;
-            this.yD = 4;
+            this.xD = 10;
+            this.yD = 3;
             this.xP += this.xD;
             this.yP += this.yD;
             if (this.xP > 1400) {
@@ -30,8 +31,8 @@ var Rodelhang;
             }
         };
         Children.prototype.moveUp = function () {
-            this.xD = Math.random() * (-12);
-            this.yD = Math.random() * (-4);
+            this.xD = Math.random() * (-10);
+            this.yD = Math.random() * (-3);
             this.xP += this.xD;
             this.yP += this.yD;
             if (this.xP < 50) {
