@@ -1,7 +1,3 @@
-/**
- * Simple server managing between client and database
- * @author: Jirka Dell'Oro-Friedl
- */
 "use strict";
 var Http = require("http");
 var Url = require("url");
@@ -23,20 +19,15 @@ function handleRequest(_request, _response) {
     var command = query["command"];
     switch (command) {
         case "insert":
-            var student = {
+            var highscore = {
                 name: query["name"],
-                firstname: query["firstname"],
-                matrikel: parseInt(query["matrikel"])
+                score: parseInt(query["score"])
             };
-            Database.insert(student);
+            Database.insert(highscore);
             respond(_response, "storing data");
             break;
-        case "refresh":
+        case "getHighscore":
             Database.findAll(findCallback);
-            break;
-        case "find":
-            var studynumber = { matrikel: parseInt(query["matrikel"]) };
-            Database.findM(studynumber, findCallback);
             break;
         default:
             respond(_response, "unknown command: " + command);

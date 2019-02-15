@@ -5,7 +5,7 @@
 	"author": "Jirka",
 	"main": "server.js",
 	"scripts": {
-		"start": "node A8/Server/server.js"
+		"start": "node Abschlussarbeit/Server/server.js"
 	},
 	"engines": {
 		"node": "8.10.0"

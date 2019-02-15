@@ -12,19 +12,35 @@ namespace Rodelhang {
     let xMouse: number;
     let yMouse: number;
     let snowball: Snowball;
+ export let name: string;
+ export   let score: number = 0;
+    let gameEndbool: boolean = false;
 
     function listeners(): void {
-        document.getElementById("Anleitung").addEventListener("click", anzeigeCanvas);
+        console.log("listeners");
+
         document.getElementsByTagName("canvas")[0].addEventListener("click", mouseEvent);
+
+    }
+    function init(): void {
+        document.getElementById("Anleitung").addEventListener("click", startGame);
+        document.getElementById("ende").classList.add("invisible");
+
     }
 
 
-    function init(): void {
+    function startGame(): void {
+
+        anzeigeCanvas();
+        listeners();
+
+        console.log("maininit");
+
 
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
-        listeners();
+
         drawSky();
         drawHill();
         drawSun();
@@ -38,18 +54,18 @@ namespace Rodelhang {
         generateSlowChildren();
         generateSnow();
 
-        drawScore();
-        // generateScore();
 
         imagedata = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        setTimeout(gameEnds, 4000);
 
         update();
     }
 
 
-    function anzeigeCanvas() {
+    function anzeigeCanvas(): void {
         document.getElementsByTagName("canvas")[0].classList.remove("invisible");
         document.getElementsByTagName("div")[0].classList.add("invisible");
+
     }
 
 
@@ -74,6 +90,7 @@ namespace Rodelhang {
                 }
             }
         }
+        drawScore();
     }
     //Schneeball
     function generateSnowball(_xMouse: number, _yMouse: number): void {
@@ -110,6 +127,16 @@ namespace Rodelhang {
                                     let child = new Children();
                                     objects.push(child);
                                     children.push(child);
+
+                                    if (objects[a].md == false) {
+                                        score += 5;
+                                    }
+                                    else if (objects[a].typ == "slowChildren") {
+                                        score += 10;
+                                    }
+                                    else if (objects[a].typ == "children") {
+                                        score += 20;
+                                    }
                                 }
                             }
                         }
@@ -156,6 +183,20 @@ namespace Rodelhang {
         }
     }
 
+    function gameEnds(): void {
+        document.getElementsByTagName("canvas")[0].classList.add("invisible");
+        document.getElementById("ende").classList.remove("invisible");
+        document.getElementById("reload").classList.remove("invisible");
+        document.getElementById("yourScore").innerText = "Deine Punktzahl:" + " " + score.toString();
+        document.getElementById("reload").addEventListener("click", reload);
+
+
+
+
+    }
+    function reload(): void {
+        window.location.reload();
+    }
     function drawCloud(): void {
         crc2.beginPath();
         crc2.arc(70, 170, 45, 0, 2 * Math.PI);
@@ -166,6 +207,7 @@ namespace Rodelhang {
         crc2.fill();
 
     }
+
 
     function drawCloud2(): void {
         crc2.beginPath();
@@ -230,11 +272,6 @@ namespace Rodelhang {
     }
 
 
-    /*  function generateScore(): void {
-          let score: Score = new Score();
-          objects.push(score);
-    }*/
-
     function drawScore(): void {
         crc2.beginPath();
         crc2.moveTo(50, 670);
@@ -252,5 +289,12 @@ namespace Rodelhang {
         crc2.fillStyle = "#000000";
         crc2.fillText("Score", 135, 700);
 
+        crc2.font = "30px Quicksand";
+        crc2.fillStyle = "#000000";
+
+        crc2.fillText(score.toString(), 135, 730);
+
+
+
     }
-}
+}    

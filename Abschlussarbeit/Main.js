@@ -9,14 +9,22 @@ var Rodelhang;
     var xMouse;
     var yMouse;
     var snowball;
+    Rodelhang.score = 0;
+    var gameEndbool = false;
     function listeners() {
-        document.getElementById("Anleitung").addEventListener("click", anzeigeCanvas);
+        console.log("listeners");
         document.getElementsByTagName("canvas")[0].addEventListener("click", mouseEvent);
     }
     function init() {
+        document.getElementById("Anleitung").addEventListener("click", startGame);
+        document.getElementById("ende").classList.add("invisible");
+    }
+    function startGame() {
+        anzeigeCanvas();
+        listeners();
+        console.log("maininit");
         var canvas = document.getElementsByTagName("canvas")[0];
         Rodelhang.crc2 = canvas.getContext("2d");
-        listeners();
         drawSky();
         drawHill();
         drawSun();
@@ -26,9 +34,8 @@ var Rodelhang;
         generateChild();
         generateSlowChildren();
         generateSnow();
-        drawScore();
-        // generateScore();
         imagedata = Rodelhang.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        setTimeout(gameEnds, 4000);
         update();
     }
     function anzeigeCanvas() {
@@ -52,6 +59,7 @@ var Rodelhang;
                 }
             }
         }
+        drawScore();
     }
     //Schneeball
     function generateSnowball(_xMouse, _yMouse) {
@@ -83,6 +91,15 @@ var Rodelhang;
                                     var child = new Rodelhang.Children();
                                     objects.push(child);
                                     children.push(child);
+                                    if (objects[a].md == false) {
+                                        Rodelhang.score += 5;
+                                    }
+                                    else if (objects[a].typ == "slowChildren") {
+                                        Rodelhang.score += 10;
+                                    }
+                                    else if (objects[a].typ == "children") {
+                                        Rodelhang.score += 20;
+                                    }
                                 }
                             }
                         }
@@ -119,6 +136,16 @@ var Rodelhang;
             objects.push(child);
             children.push(child);
         }
+    }
+    function gameEnds() {
+        document.getElementsByTagName("canvas")[0].classList.add("invisible");
+        document.getElementById("ende").classList.remove("invisible");
+        document.getElementById("reload").classList.remove("invisible");
+        document.getElementById("yourScore").innerText = "Deine Punktzahl:" + " " + Rodelhang.score.toString();
+        document.getElementById("reload").addEventListener("click", reload);
+    }
+    function reload() {
+        window.location.reload();
     }
     function drawCloud() {
         Rodelhang.crc2.beginPath();
@@ -182,10 +209,6 @@ var Rodelhang;
         Rodelhang.crc2.fillStyle = "#fff91d";
         Rodelhang.crc2.fill();
     }
-    /*  function generateScore(): void {
-          let score: Score = new Score();
-          objects.push(score);
-    }*/
     function drawScore() {
         Rodelhang.crc2.beginPath();
         Rodelhang.crc2.moveTo(50, 670);
@@ -201,6 +224,9 @@ var Rodelhang;
         Rodelhang.crc2.font = "30px Quicksand";
         Rodelhang.crc2.fillStyle = "#000000";
         Rodelhang.crc2.fillText("Score", 135, 700);
+        Rodelhang.crc2.font = "30px Quicksand";
+        Rodelhang.crc2.fillStyle = "#000000";
+        Rodelhang.crc2.fillText(Rodelhang.score.toString(), 135, 730);
     }
 })(Rodelhang || (Rodelhang = {}));
 //# sourceMappingURL=Main.js.map
