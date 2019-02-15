@@ -35,7 +35,7 @@ var Rodelhang;
         generateSlowChildren();
         generateSnow();
         imagedata = Rodelhang.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        setTimeout(gameEnds, 4000);
+        setTimeout(gameEnds, 10000);
         update();
     }
     function anzeigeCanvas() {
@@ -143,6 +143,8 @@ var Rodelhang;
         document.getElementById("reload").classList.remove("invisible");
         document.getElementById("yourScore").innerText = "Deine Punktzahl:" + " " + Rodelhang.score.toString();
         document.getElementById("reload").addEventListener("click", reload);
+        DatabaseClient.insert();
+        DatabaseClient.getHighscore();
     }
     function reload() {
         window.location.reload();

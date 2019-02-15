@@ -4,14 +4,16 @@ var DatabaseClient;
     var serverAddress = "https://aufgabe6beispiel.herokuapp.com";
     function init(_event) {
     }
-    function insert(_event) {
+    function insert() {
         var url = "command=insert" + "&" + "score" + "=" + Rodelhang.score + "&" + "name" + "=" + Rodelhang.name;
         sendRequest(url, handleInsertResponse);
     }
-    function getHighscore(_event) {
+    DatabaseClient.insert = insert;
+    function getHighscore() {
         var query = "command=getHighscore";
         sendRequest(query, handleHighscoreResponse);
     }
+    DatabaseClient.getHighscore = getHighscore;
     function sendRequest(_query, _callback) {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", serverAddress + "?" + _query, true);

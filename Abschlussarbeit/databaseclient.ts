@@ -6,12 +6,12 @@ namespace DatabaseClient {
 
 
     }
-    function insert(_event: Event): void {
+ export   function insert(): void {
         let url: string = "command=insert" + "&" + "score" + "=" + Rodelhang.score + "&" + "name" + "=" + Rodelhang.name;
         sendRequest(url, handleInsertResponse);
     }
 
-    function getHighscore(_event: Event) {
+export    function getHighscore() {
         let query: string = "command=getHighscore";
         sendRequest(query, handleHighscoreResponse);
 
