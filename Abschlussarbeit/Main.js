@@ -20,6 +20,8 @@ var Rodelhang;
         document.getElementById("ende").classList.add("invisible");
     }
     function startGame() {
+        var nameinput = document.getElementById("nameinput");
+        Rodelhang.name = nameinput.value;
         anzeigeCanvas();
         listeners();
         console.log("maininit");
@@ -35,7 +37,7 @@ var Rodelhang;
         generateSlowChildren();
         generateSnow();
         imagedata = Rodelhang.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        setTimeout(gameEnds, 10000);
+        setTimeout(gameEnds, 50000);
         update();
     }
     function anzeigeCanvas() {

@@ -12,8 +12,8 @@ namespace Rodelhang {
     let xMouse: number;
     let yMouse: number;
     let snowball: Snowball;
- export let name: string;
- export   let score: number = 0;
+    export let name: string;
+    export let score: number = 0;
     let gameEndbool: boolean = false;
 
     function listeners(): void {
@@ -30,7 +30,8 @@ namespace Rodelhang {
 
 
     function startGame(): void {
-
+        let nameinput: HTMLInputElement = <HTMLInputElement> document.getElementById("nameinput");
+        name = nameinput.value;
         anzeigeCanvas();
         listeners();
 
@@ -56,7 +57,7 @@ namespace Rodelhang {
 
 
         imagedata = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        setTimeout(gameEnds, 10000);
+        setTimeout(gameEnds, 50000);
 
         update();
     }
@@ -189,10 +190,10 @@ namespace Rodelhang {
         document.getElementById("reload").classList.remove("invisible");
         document.getElementById("yourScore").innerText = "Deine Punktzahl:" + " " + score.toString();
         document.getElementById("reload").addEventListener("click", reload);
-        
+
         DatabaseClient.insert();
         DatabaseClient.getHighscore();
-        
+
 
 
 

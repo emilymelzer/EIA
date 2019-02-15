@@ -23,24 +23,29 @@ var DatabaseClient;
     function handleInsertResponse(_event) {
         var xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            var hs = JSON.parse(xhr.response);
-            function sortScore(_h1, _h2) {
-                if (_h1.score > _h2.score) {
-                    return 1;
-                }
-                if (_h1.score < _h2.score) {
-                    return -1;
-                }
-                return 0;
-            }
-            hs.sort(sortScore);
         }
-        alert(xhr.response);
     }
     function handleHighscoreResponse(_event) {
         var xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log(xhr.response);
+            var hs = JSON.parse(xhr.response);
+            function sortScore(_h1, _h2) {
+                if (_h1.score < _h2.score) {
+                    return 1;
+                }
+                if (_h1.score > _h2.score) {
+                    return -1;
+                }
+                return 0;
+            }
+            hs.sort(sortScore);
+            for (var b = 0; b < hs.length; b++) {
+                var div = document.createElement("div");
+                document.getElementById("scores").appendChild(div);
+                div.innerHTML = "Name " + hs[b].name;
+                div.innerHTML += "\t Score " + hs[b].score;
+            }
         }
     }
 })(DatabaseClient || (DatabaseClient = {}));

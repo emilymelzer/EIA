@@ -22,47 +22,45 @@ namespace DatabaseClient {
         xhr.addEventListener("readystatechange", _callback);
         xhr.send();
     }
-    
-    
+
+
     function handleInsertResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
 
-}
         }
-            function handleHighscoreResponse(_event: ProgressEvent): void {
-                let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-                if (xhr.readyState == XMLHttpRequest.DONE) {
-                    console.log(xhr.response);
+    }
+    function handleHighscoreResponse(_event: ProgressEvent): void {
+        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log(xhr.response);
 
 
-                    let hs: Highscore[] = JSON.parse(xhr.response);
+            let hs: Highscore[] = JSON.parse(xhr.response);
 
-                    function sortScore(_h1: Highscore, _h2: Highscore): number {
-                        if (_h1.score > _h2.score) {
-                            return 1;
-                        }
-                        if (_h1.score < _h2.score) {
-                            return -1;
-                        }
-                        return 0;
-                    }
-                    hs.sort(sortScore);
-
-                    for (let b: number = 0; b < Highscore.length; b++) {
-                        document.getElementById("High").appendChild(div);
-                        div.innerHTML = hs[b].name;
-                        div.innerHTML = hs[b].score;
-                        let id: string = b.toString();
-                        div.setAttribute("id", id);
-                        div.classList.add
-
-                    }
-                    alert(xhr.response);
+            function sortScore(_h1: Highscore, _h2: Highscore): number {
+                if (_h1.score < _h2.score) {
+                    return 1;
                 }
+                if (_h1.score > _h2.score) {
+                    return -1;
+                }
+                return 0;
             }
-        
-    
+            hs.sort(sortScore);
+
+            for (let b: number = 0; b < hs.length; b++) {
+              let div: HTMLDivElement = document.createElement("div");  
+                document.getElementById("scores").appendChild(div);
+                div.innerHTML = "Name " + hs[b].name;
+                div.innerHTML +="\t Score " + hs[b].score;
+                
+
+            }
+        }
+    }
+
+}
 
 
 
