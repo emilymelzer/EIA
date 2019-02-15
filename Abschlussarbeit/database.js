@@ -45,7 +45,7 @@ function findAll(_callback) {
             _callback("Error" + _e);
         else
             // stringify creates a json-string, passed it back to _callback
-            _callback(JSON.stringify(Array));
+            _callback(JSON.stringify(HighscoreArray));
     }
 }
 exports.findAll = findAll;
