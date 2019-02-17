@@ -59,7 +59,6 @@ input {
 }
 
 #scores {
-	
 	margin-top: 5px;
 	font-size: 1.0em;
 	font-family: 'Quicksand', sans-serif;
@@ -71,6 +70,12 @@ input {
 	margin-left: 650px;
 	font-size: 5.0em;
 	font-family: 'Shadows Into Light', cursive;
+}
+
+#Überschrift {
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 2.35em;
+	padding-left: 650px;
 }
 
 #info {
