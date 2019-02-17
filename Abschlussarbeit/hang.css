@@ -45,12 +45,11 @@ input {
 	height: 40px;
 	width: 870px;
 	padding-left: 500px;
-	background-color:white;
-	margin-top:130px;
+	background-color: white;
+	margin-top: 130px;
 }
 
 #reload {
-	
 	font-size: 2.0em;
 	font-family: 'Quicksand', sans-serif;
 	border: 5px solid black;
@@ -58,15 +57,22 @@ input {
 	width: 390px;
 	margin-left: 520px;
 }
+
 #scores {
-	margin-left: 550px;
+	
 	margin-top: 5px;
+	font-size: 1.0em;
+	font-family: 'Quicksand', sans-serif;
+	background-color: white;
+	border: 5px solid black;
 }
+
 #überschrift {
 	margin-left: 650px;
 	font-size: 5.0em;
 	font-family: 'Shadows Into Light', cursive;
 }
+
 #info {
 	font-family: 'Quicksand', sans-serif;
 	font-size: 1.35em;

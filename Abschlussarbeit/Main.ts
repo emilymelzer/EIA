@@ -57,7 +57,7 @@ namespace Rodelhang {
 
 
         imagedata = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        setTimeout(gameEnds, 50000);
+        setTimeout(gameEnds, 180000);
 
         update();
     }
